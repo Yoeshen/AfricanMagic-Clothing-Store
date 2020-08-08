@@ -1,0 +1,118 @@
+﻿@model AfricanMagicSystem.Models.Product
+@{
+    ViewBag.Title = "Detailed View of " + @Model.Name;
+}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".AddLink").click(function () {
+            // Get the id from the link
+            var recordToAdd = $(this).attr("data-id");
+            if (recordToAdd != '') {
+                // Perform the ajax post
+                $.post("/ShoppingCart/AddToCart", { "id": recordToAdd },
+                    function (data) {
+                        $('#cart-status').text(data.CartCount);
+                    });
+            }
+        });
+    });
+</script>
+
+<!-- Button trigger modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div aria-hidden="true" class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>You have added @Model.Name to your cart.</strong> Check out <a href="#" class="alert-link">here</a>.
+    </div>
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Continue Shopping?</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have added @Model.Name to your cart. Would you like to check out or keep shopping?</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continue</button>
+                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "ShoppingCart")'">Check Out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<h2>Details</h2>
+
+
+<div class="two-column-grid">
+    <div class="column--1"></div>
+    <div class="column--2">
+        <img src="@Url.Action("RenderImage", new { id = Model.ID})" alt="product image" class="productimage">
+    </div>
+    <div class="column--3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductCategory.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductCategory.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                R @Html.DisplayFor(model => model.Price),00
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+        </dl>
+            <p>
+                <a href="#" class="AddLink"
+                   data-id="@Model.ID" data-toggle="modal" data-target="#myModal">
+                    Add
+                    to cart
+                </a>
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+
+                }
+
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+</div>
+    </div>
+    <div class="column--4"></div>
+</div>
+
+
+
+

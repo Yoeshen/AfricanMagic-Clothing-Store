@@ -1,0 +1,46 @@
+﻿<div class="bs-component">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("AfricanMagic", "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator Functions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Sales", "Index", "Sales")</li>
+                            <li>@Html.ActionLink("Categories", "Index", "ProductCategories")</li>
+                            <li>@Html.ActionLink("Promotions", "Index", "Promotions")</li>
+                            <li>@Html.ActionLink("Analytics", "Index", "Analytics")</li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Roles Admin</li>
+                            <li>@Html.ActionLink("Manage User Roles", "Index", "RolesAdmin")</li>
+                            <li>@Html.ActionLink("Manage Users", "Index", "UsersAdmin")</li>
+                        </ul>
+                    </li>
+                }
+                <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </li>
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+
+        </div>
+
+    </div>
+</div>

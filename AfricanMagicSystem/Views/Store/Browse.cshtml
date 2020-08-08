@@ -1,0 +1,22 @@
+﻿@model AfricanMagicSystem.Models.ProductCategory
+
+@{
+    ViewBag.Title = "Browse Items";
+}
+
+<div class="genre">
+    <h3><em>@Model.Name</em> Items</h3>
+
+    <ul id="item-list">
+        @foreach (var item in Model.Products)
+        {
+            <li>
+                <a href="@Url.Action("Products/Details", new { id = item.ID })">
+                    <img alt="@item.Name" src="@item.ItemPictureUrl" />
+                    <span>@item.Name</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+

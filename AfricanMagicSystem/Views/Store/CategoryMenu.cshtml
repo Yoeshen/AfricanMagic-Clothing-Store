@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AfricanMagicSystem.Models.ProductCategory>
+<ul id="categories">
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.Name,
+                "Browse", "Store",
+                new { item = item.Name }, null)
+        </li>
+    }
+</ul>
