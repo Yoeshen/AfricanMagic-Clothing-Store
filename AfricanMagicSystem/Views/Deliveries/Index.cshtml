@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AfricanMagicSystem.Models.Delivery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sale.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sale.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatus)
+        </td>
+        <td>            
+            @Html.ActionLink("Details", "Details", new { id=item.DeliveryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DeliveryId })
+        </td>
+    </tr>
+}
+
+</table>
