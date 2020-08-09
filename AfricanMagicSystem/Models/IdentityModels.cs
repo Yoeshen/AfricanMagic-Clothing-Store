@@ -34,6 +34,7 @@ namespace AfricanMagicSystem.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<ReturnItem> ReturnItems { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }

@@ -229,6 +229,14 @@
     <Compile Include="Migrations\202008081916494_yeahidk.designer.cs">
       <DependentUpon>202008081916494_yeahidk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008091639462_Returns.cs" />
+    <Compile Include="Migrations\202008091639462_Returns.designer.cs">
+      <DependentUpon>202008091639462_Returns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008091642040_ReturnItems.cs" />
+    <Compile Include="Migrations\202008091642040_ReturnItems.designer.cs">
+      <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -239,6 +247,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ReturnItem.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
@@ -263,6 +272,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\d3pie.min.js" />
     <Content Include="Scripts\d3\d3.js" />
     <Content Include="Scripts\d3\d3.min.js" />
     <Content Include="Scripts\d3\README.md" />
@@ -391,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008081916494_yeahidk.resx">
       <DependentUpon>202008081916494_yeahidk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008091639462_Returns.resx">
+      <DependentUpon>202008091639462_Returns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008091642040_ReturnItems.resx">
+      <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
