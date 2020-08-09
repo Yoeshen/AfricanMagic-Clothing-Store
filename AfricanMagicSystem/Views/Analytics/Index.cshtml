@@ -8,31 +8,29 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="~/Scripts/d3pie.min.js"></script>
 
-<div class="row">
-    @Html.Partial("Test")
-</div>
-<div class="row">
+
+<div class="row">    
     <div class="col-lg-4">
         <div id="pieChart2">
         </div>
     </div>
-
+</div>
+<div class="row">
     <div class="col-lg-4">
         <div id="pieChart">
         </div>
     </div>
 </div>
-
-<script>
+    <script>
     var pie = new d3pie("pieChart2", {
         "header": {
             "title": {
-                "text": "List My Orders",
+                "text": "AfricanMagic Analytics",
                 "fontSize": 24,
                 "font": "open sans"
             },
             "subtitle": {
-                "text": "A full pie chart to show off label collision detection and resolution.",
+                "text": "A pie chart displaying the current analytics of the AfricanMagic system.",
                 "color": "#999999",
                 "fontSize": 12,
                 "font": "open sans"
@@ -99,19 +97,20 @@
             }
         }
     });
-</script>
+    </script>
 
+    <br />
 
-<script>
+    <script>
             var pie = new d3pie("pieChart", {
                 "header": {
                     "title": {
-                        "text": "Top Orders",
+                        "text": "Our Top Orders",
                         "fontSize": 34,
                         "font": "courier"
                     },
                     "subtitle": {
-                        "text": "What were your top 10 days?",
+                        "text": "Top orders for the past 10 days.",
                         "color": "#999999",
                         "fontSize": 10,
                         "font": "courier"
@@ -120,7 +119,7 @@
                     "titleSubtitlePadding": 10
                 },
                 "footer": {
-                    "text": "* This data is directly from your database.",
+                    "text": "* This data is directly from our database.",
                     "color": "#999999",
                     "fontSize": 10,
                     "font": "open sans",
@@ -185,30 +184,30 @@
                     }
                 }
             });
-</script>
+    </script>
 
 
 
-<table>
-    <tr>
-        <th>
-            Order Date
-        </th>
-        <th>
-            Number of Orders
-        </th>
-    </tr>
-
-    @foreach (var item in Model.SaleData)
-    {
+    <table>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SaleDate)
-            </td>
-            <td>
-                @item.SaleCount
-            </td>
+            <th>
+                Order Date:
+            </th>
+            <th>
+                Number of Orders:
+            </th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model.SaleData)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleDate) 
+                </td>
+                <td>
+                    @item.SaleCount
+                </td>
+            </tr>
+        }
+    </table>
 
