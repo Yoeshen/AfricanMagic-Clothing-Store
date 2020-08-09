@@ -237,6 +237,10 @@
     <Compile Include="Migrations\202008091642040_ReturnItems.designer.cs">
       <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008091729411_UpdatedReturn.cs" />
+    <Compile Include="Migrations\202008091729411_UpdatedReturn.designer.cs">
+      <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -376,6 +380,11 @@
     <Content Include="Views\Analytics\Pie1.cshtml" />
     <Content Include="Views\Analytics\Pie2.cshtml" />
     <Content Include="Views\Analytics\Test.cshtml" />
+    <Content Include="Views\ReturnItems\Create.cshtml" />
+    <Content Include="Views\ReturnItems\Delete.cshtml" />
+    <Content Include="Views\ReturnItems\Details.cshtml" />
+    <Content Include="Views\ReturnItems\Edit.cshtml" />
+    <Content Include="Views\ReturnItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008091642040_ReturnItems.resx">
       <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008091729411_UpdatedReturn.resx">
+      <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

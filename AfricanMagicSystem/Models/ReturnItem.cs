@@ -12,8 +12,6 @@ namespace AfricanMagicSystem.Models
         [Key]
         public int ReturnCode { get; set; }
 
-        public int ProductID { get; set; }
-
         [Required(ErrorMessage ="Please enter a valid Sale ID. Find this on your Invoice.")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Please use numbers only")]
         public int SaleID { get; set; }
@@ -25,8 +23,6 @@ namespace AfricanMagicSystem.Models
         public DateTime ReturnDate { get; set; }
 
         public string ReturnReason { get; set; }
-
-        public virtual Product Product { get; set; }
 
         public virtual Sale Sale { get; set; }
     }
