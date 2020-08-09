@@ -12,6 +12,7 @@ namespace AfricanMagicSystem.Controllers
     {
         private ApplicationDbContext dB = new ApplicationDbContext();
 
+        [HttpPost]
         public async Task<ActionResult> SaleValidCheck(ReturnItem returnItem)
         {
             List<Sale> chck = (from x in dB.Sales
@@ -33,6 +34,8 @@ namespace AfricanMagicSystem.Controllers
                 }
             }
             return View("Invalid");
-        } 
+        }
+        
+
     }
 }
