@@ -1,10 +1,10 @@
 {
   "dependencies": {
     "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/afmag/databases/afmagic",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/afmag2/databases/afmag",
       "type": "mssql.azure",
       "connectionId": "DefaultConnection",
-      "secretStore": "LocalSecretsFile"
+      "secretStore": null
     }
   }
 }
