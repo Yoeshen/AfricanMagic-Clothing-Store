@@ -65,7 +65,6 @@ namespace AfricanMagicSystem.Controllers
                 }
                 
             }
-
             return View(returnItem);
         }
 

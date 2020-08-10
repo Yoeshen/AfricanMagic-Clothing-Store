@@ -19,6 +19,7 @@ using Syncfusion.Pdf.Parsing;
 using System.Data;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.XPS;
+using Nexmo.Api;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -27,7 +28,7 @@ namespace AfricanMagicSystem.Controllers
     {
         ApplicationDbContext dB = new ApplicationDbContext();
         AppConfigurations appConfig = new AppConfigurations();
-        ProductsController ProductsController = new ProductsController();
+       // ProductsController ProductsController = new ProductsController();
 
         public List<String> CreditCardTypes { get { return appConfig.CreditCardType; } }
 
@@ -294,6 +295,20 @@ namespace AfricanMagicSystem.Controllers
                 document.Close(true);
                 //Dispose of email.
                 mail.Dispose();
+
+                //SMS
+                string SMS = "27" + sale.PhoneNumber.Substring(1, 9);
+                var client = new Client(creds: new Nexmo.Api.Request.Credentials
+                {
+                    ApiKey = "52a7c941",
+                    ApiSecret = "Z9wbGIsEHzi96qDp"
+                });
+                var resultss = client.SMS.Send(request: new SMS.SMSRequest
+                {
+                    from = "AfricanMagic",
+                    to = SMS,
+                    text = "Dear " + sale.FirstName + ", Your Order #" + sale.SaleId + " has been successfully received. Delivery will be confirmed upon successful payment and will take place between 3-5 working days."
+                });
 
                 // Retrieve required values for the PayFast Merchant
                 string name = "AfricanMagic Order Number #" + orderId;
