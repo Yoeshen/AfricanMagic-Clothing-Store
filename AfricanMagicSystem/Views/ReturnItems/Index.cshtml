@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AfricanMagicSystem.Models.ReturnItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnReason)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnReason)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReturnCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReturnCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReturnCode })
+        </td>
+    </tr>
+}
+
+</table>

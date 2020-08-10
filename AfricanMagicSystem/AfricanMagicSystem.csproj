@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ProductCategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
+    <Compile Include="Controllers\ReturnItemsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -390,6 +391,11 @@
     <Content Include="Views\Deliveries\Details.cshtml" />
     <Content Include="Views\Deliveries\Edit.cshtml" />
     <Content Include="Views\Deliveries\Index.cshtml" />
+    <Content Include="Views\ReturnItems\Create.cshtml" />
+    <Content Include="Views\ReturnItems\Delete.cshtml" />
+    <Content Include="Views\ReturnItems\Details.cshtml" />
+    <Content Include="Views\ReturnItems\Edit.cshtml" />
+    <Content Include="Views\ReturnItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
