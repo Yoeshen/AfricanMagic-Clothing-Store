@@ -213,7 +213,6 @@
     <Compile Include="Controllers\ProductCategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
-    <Compile Include="Controllers\ReturnsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -242,6 +241,10 @@
     <Compile Include="Migrations\202008091729411_UpdatedReturn.cs" />
     <Compile Include="Migrations\202008091729411_UpdatedReturn.designer.cs">
       <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008101107357_UpdatedReturnsAgain.cs" />
+    <Compile Include="Migrations\202008101107357_UpdatedReturnsAgain.designer.cs">
+      <DependentUpon>202008101107357_UpdatedReturnsAgain.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -392,7 +395,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Delivery\" />
     <Folder Include="Views\Email\" />
-    <Folder Include="Views\Returns\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -422,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008091729411_UpdatedReturn.resx">
       <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008101107357_UpdatedReturnsAgain.resx">
+      <DependentUpon>202008101107357_UpdatedReturnsAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

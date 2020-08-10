@@ -27,6 +27,7 @@ namespace AfricanMagicSystem.Controllers
     {
         ApplicationDbContext dB = new ApplicationDbContext();
         AppConfigurations appConfig = new AppConfigurations();
+        ProductsController ProductsController = new ProductsController();
 
         public List<String> CreditCardTypes { get { return appConfig.CreditCardType; } }
 
@@ -120,7 +121,7 @@ namespace AfricanMagicSystem.Controllers
                     if (checkStock.Stock == 20)
                     {
                         emailNotif.AddRange(chck);
-                        emailBody = checkStock.ID.ToString() + " " + checkStock.Name.ToString() + "  " + checkStock.Stock.ToString() + "<br/>";
+                        emailBody = "Stock ID - " + checkStock.ID.ToString() + " (" + checkStock.Name.ToString() + ", " + checkStock.Stock.ToString() + ")" + "<br/>";
                         MailMessage mailcheckStock = new MailMessage();
                         string emailToAdmin = "africanmagicsystem@gmail.com";
                         MailAddress from1 = new MailAddress("africanmagicsystem@gmail.com");
