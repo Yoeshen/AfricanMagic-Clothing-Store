@@ -46,11 +46,24 @@ namespace AfricanMagicSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ReturnItem returnItem)
         {
+            List<Sale> chck = (from x in db.Sales
+                               select x).ToList();
+            DateTime currentdate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                db.ReturnItems.Add(returnItem);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                foreach(var d in chck)
+                {
+                    DateTime saledate = d.SaleDate;
+                    TimeSpan diff = currentdate.Subtract(saledate);
+
+                    if(d.SaleId == returnItem.InvoiceNumber && diff.TotalDays < 7)
+                    {
+                        db.ReturnItems.Add(returnItem);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                
             }
 
             return View(returnItem);
