@@ -51,6 +51,8 @@ namespace AfricanMagicSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddressAndPayment(FormCollection values)
         {
+
+            if (ModelState.IsValid)
             ViewBag.CreditCardTypes = CreditCardTypes;
             string results = values[9];
 
@@ -296,7 +298,7 @@ namespace AfricanMagicSystem.Controllers
                 //Dispose of email.
                 mail.Dispose();
 
-                //SMS
+                //Nexmo SMS Service
                 string SMS = "27" + sale.PhoneNumber.Substring(1, 9);
                 var client = new Client(creds: new Nexmo.Api.Request.Credentials
                 {
