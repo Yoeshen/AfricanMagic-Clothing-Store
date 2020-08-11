@@ -49,6 +49,7 @@ namespace AfricanMagicSystem.Controllers
             List<Sale> chck = (from x in db.Sales
                                select x).ToList();
             DateTime currentdate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 foreach(var d in chck)
@@ -58,6 +59,7 @@ namespace AfricanMagicSystem.Controllers
 
                     if(d.SaleId == returnItem.InvoiceNumber && diff.TotalDays < 7)
                     {
+                        returnItem.Status = "Pending";
                         db.ReturnItems.Add(returnItem);
                         db.SaveChanges();
                         return RedirectToAction("Index");
@@ -65,6 +67,7 @@ namespace AfricanMagicSystem.Controllers
                 }
                 
             }
+
             return View(returnItem);
         }
 

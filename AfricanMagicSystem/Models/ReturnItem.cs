@@ -18,10 +18,14 @@ namespace AfricanMagicSystem.Models
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Please use numbers only")]
         public int InvoiceNumber { get; set; }
 
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please use letters only")]
+        [Required(ErrorMessage = "Please enter a name.")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please use letters only")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Enter a reason for the return.")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please use letters only")]
         public string ReturnReason { get; set; }
+
+        public string Status { get; set; }
     }
 }
