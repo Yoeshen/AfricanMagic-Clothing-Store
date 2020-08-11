@@ -146,7 +146,7 @@ namespace AfricanMagicSystem.Controllers
                         smtp1.Send(mailcheckStock);
                         //Clean-up.
                         //Close the document.
-
+                        
                         //Dispose of email.
                         mailcheckStock.Dispose();
                     }
@@ -263,13 +263,11 @@ namespace AfricanMagicSystem.Controllers
                 //Draws the grid to the PDF page.
                 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
-                MemoryStream outputStream = new MemoryStream();
-                outputStream.Position = 0;
+                MemoryStream outputStream = new MemoryStream();                
                 document.Save(outputStream);
-
                 outputStream.Position = 0;
-                var contentType = new System.Net.Mime.ContentType(System.Net.Mime.MediaTypeNames.Application.Pdf);
-                var invoicePdf = new System.Net.Mail.Attachment(outputStream, contentType);
+
+                var invoicePdf = new System.Net.Mail.Attachment(outputStream, System.Net.Mime.MediaTypeNames.Application.Pdf);
                 string docname = "Invoice.pdf";
                 invoicePdf.ContentDisposition.FileName = docname;
 
