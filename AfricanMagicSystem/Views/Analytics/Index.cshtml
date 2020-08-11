@@ -9,7 +9,7 @@
 <script src="~/Scripts/d3pie.min.js"></script>
 
 
-<div class="row">    
+<div class="row">
     <div class="col-lg-4">
         <div id="pieChart2">
         </div>
@@ -21,7 +21,7 @@
         </div>
     </div>
 </div>
-    <script>
+<script>
     var pie = new d3pie("pieChart2", {
         "header": {
             "title": {
@@ -97,11 +97,11 @@
             }
         }
     });
-    </script>
+</script>
 
-    <br />
+<br />
 
-    <script>
+<script>
             var pie = new d3pie("pieChart", {
                 "header": {
                     "title": {
@@ -184,30 +184,20 @@
                     }
                 }
             });
-    </script>
+</script>
+<div>
+    <div>
+        @Html.ActionLink("Export Sales", "ExportSales", "Analytics", new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <div>
+        @Html.ActionLink("Export Products", "ExportProducts", "Analytics", new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <div>
+        @Html.ActionLink("Export Deliveries", "ExportDeliveries", "Analytics", new { @class = "btn btn-primary" })
+    </div>
+    <br />
+</div>
 
-
-
-    <table>
-        <tr>
-            <th>
-                Order Date:
-            </th>
-            <th>
-                Number of Orders:
-            </th>
-        </tr>
-
-        @foreach (var item in Model.SaleData)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SaleDate) 
-                </td>
-                <td>
-                    @item.SaleCount
-                </td>
-            </tr>
-        }
-    </table>
 
