@@ -396,33 +396,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008081858504_Redo.cs" />
-    <Compile Include="Migrations\202008081858504_Redo.designer.cs">
-      <DependentUpon>202008081858504_Redo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008081916494_yeahidk.cs" />
-    <Compile Include="Migrations\202008081916494_yeahidk.designer.cs">
-      <DependentUpon>202008081916494_yeahidk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008091639462_Returns.cs" />
-    <Compile Include="Migrations\202008091639462_Returns.designer.cs">
-      <DependentUpon>202008091639462_Returns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008091642040_ReturnItems.cs" />
-    <Compile Include="Migrations\202008091642040_ReturnItems.designer.cs">
-      <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008091729411_UpdatedReturn.cs" />
-    <Compile Include="Migrations\202008091729411_UpdatedReturn.designer.cs">
-      <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008101107357_UpdatedReturnsAgain.cs" />
-    <Compile Include="Migrations\202008101107357_UpdatedReturnsAgain.designer.cs">
-      <DependentUpon>202008101107357_UpdatedReturnsAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008111155016_UpdatedReturnsV2.cs" />
-    <Compile Include="Migrations\202008111155016_UpdatedReturnsV2.designer.cs">
-      <DependentUpon>202008111155016_UpdatedReturnsV2.cs</DependentUpon>
+    <Compile Include="Migrations\202008111252314_UpdatedAgain.cs" />
+    <Compile Include="Migrations\202008111252314_UpdatedAgain.designer.cs">
+      <DependentUpon>202008111252314_UpdatedAgain.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -594,26 +570,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008081858504_Redo.resx">
-      <DependentUpon>202008081858504_Redo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008081916494_yeahidk.resx">
-      <DependentUpon>202008081916494_yeahidk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008091639462_Returns.resx">
-      <DependentUpon>202008091639462_Returns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008091642040_ReturnItems.resx">
-      <DependentUpon>202008091642040_ReturnItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008091729411_UpdatedReturn.resx">
-      <DependentUpon>202008091729411_UpdatedReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008101107357_UpdatedReturnsAgain.resx">
-      <DependentUpon>202008101107357_UpdatedReturnsAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008111155016_UpdatedReturnsV2.resx">
-      <DependentUpon>202008111155016_UpdatedReturnsV2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008111252314_UpdatedAgain.resx">
+      <DependentUpon>202008111252314_UpdatedAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

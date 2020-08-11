@@ -7,13 +7,13 @@ namespace AfricanMagicSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UpdatedReturn : IMigrationMetadata
+    public sealed partial class UpdatedAgain : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedReturn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedAgain));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008091729411_UpdatedReturn"; }
+            get { return "202008111252314_UpdatedAgain"; }
         }
         
         string IMigrationMetadata.Source

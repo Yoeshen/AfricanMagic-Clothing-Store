@@ -126,6 +126,25 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        /*public ActionResult Approval(int id)
+        {
+            List<ReturnItem> returnitems = (from x in db.ReturnItems
+                                           select x).ToList();
+
+            List<SaleDetail> saleDetails = (from y in db.SalesDetails
+                                            select y).ToList();
+
+            List<Product> products = (from z in db.Products
+                                      select z).ToList();
+
+            foreach(var findret in returnitems)
+            {
+                
+            }
+            
+        }*/
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
