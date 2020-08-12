@@ -53,30 +53,34 @@
 
 
 
-
-<h2 class="heading-primary heading-primary--title">Heres What We Have To Offer</h2>
+<h1>Welcome To AfricanMagic.</h1>
+<h2>These are our current offerings.</h2>
+<br/>
 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
 {
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
 }
+
 <div class="bs-docs-section">
     <div class="row">
         @using (Html.BeginForm("Index", "Products", FormMethod.Get))
         {
             <div class="form-group">
                 <div class="input-group">
-                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-                    <span class="input-group-btn">
-                        <input type="submit" class="btn btn-info btn-lg" value="Search" />
-                    </span>
+                    <div class="searchdiv">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Enter a product name here." })
+                                        <input type="submit" class="btn btn-info btn-lg" value="Search" />
+                    </div>                                    
                 </div>
             </div>
         }
     </div>
 </div>
 
+<br/>
+<br/>
       <!-- product grid of three 4x5 images + heading and price -->
             <div class="product-grid">
 

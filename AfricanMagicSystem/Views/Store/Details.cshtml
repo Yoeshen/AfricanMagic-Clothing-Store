@@ -12,17 +12,23 @@
 
 <div id="item-details">
     <p>
-        <em>Genre:</em>
+        <em>Category:</em>
         @Model.ProductCategory.Name
     </p>
     <p>
         <em>Price:</em>
         @String.Format("{0:F}", Model.Price)
     </p>
+    <p>
+        <em>
+            @Model.Stock left in stock.
+        </em>
+    </p>
     <p class="button">
         @Html.ActionLink("Add to cart", "AddToCart",
         "ShoppingCart", new { id = Model.ID }, "")
     </p>
+
 </div>
 
 

@@ -1,5 +1,7 @@
 ﻿
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Oswald:wght@400;600;700&family=Roboto+Condensed&family=Roboto:wght@400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
 
 *,
 *::before,
@@ -19,6 +21,20 @@ body {
     margin-top: 5rem;
     padding-top: 50px;
     padding-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 50px;
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: black;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -69,14 +85,24 @@ textarea {
 
 }
 
-.heading-primary--title {
+.heading-primary--additional {
     color: #000;
     display: block;
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 300;
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
-    border-bottom: 2px solid #777;
+}
+
+.heading-primary--title {
+    color: #000;
+    display: block;
+    font-size: 4.25rem;
+    
+    letter-spacing: 1.625rem;
+    animation: moveInRight 1s ease-out;
+    border-bottom: 1px solid #777;
+    
 }
 
 @keyframes moveInLeft {
@@ -518,7 +544,14 @@ input:focus {
     height: 50vh;
     width: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     align-content: center;
 }
+
+.searchdiv {
+    padding: 1px;
+    border : 0.75px ridge #3D89DC;
+    border-radius : 4px;    
+}
+
