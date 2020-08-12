@@ -51,6 +51,11 @@ h4 {
     color: black;
 }
 
+em {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

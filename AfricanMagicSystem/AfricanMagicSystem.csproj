@@ -605,6 +605,7 @@
     <Content Include="Views\ReturnItems\Edit.cshtml" />
     <Content Include="Views\ReturnItems\Index.cshtml" />
     <Content Include="Views\ReturnItems\Invalid.cshtml" />
+    <Content Include="Views\ReturnItems\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

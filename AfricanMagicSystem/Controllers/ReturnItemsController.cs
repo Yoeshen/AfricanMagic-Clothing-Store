@@ -73,11 +73,14 @@ namespace AfricanMagicSystem.Controllers
                         db.SaveChanges();
                         return RedirectToAction("Index");
                     }
+                    else
+                    {
+                        return View("Invalid");
+                    }
                 }
-
             }
 
-            return View(returnItem);
+            return View("Success");
         }
 
         // GET: ReturnItems/Edit/5
@@ -174,11 +177,7 @@ namespace AfricanMagicSystem.Controllers
                                 db.SaveChanges();
                             }
                         }
-                    }
-                    else
-                    {
-                        return View("Invalid");
-                    }
+                    }                  
 
                 }
             }
