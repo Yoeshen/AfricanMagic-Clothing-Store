@@ -43,7 +43,29 @@
         </dd>
 
     </dl>
-</div>
+</div> 
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            Item Purchased
+        </th>
+        <th>
+            Quntity
+        </th>
+    </tr>
+    @foreach (var item in Model.saleDetails)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
+    }
+
+</table>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ReturnCode }) |
     @Html.ActionLink("Back to List", "Index")

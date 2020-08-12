@@ -27,5 +27,7 @@ namespace AfricanMagicSystem.Models
         public string ReturnReason { get; set; }
 
         public string Status { get; set; }
+
+        public List<SaleDetail> saleDetails { get; set; }
     }
 }
