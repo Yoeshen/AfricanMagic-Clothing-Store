@@ -50,11 +50,18 @@
             Item Purchased
         </th>
         <th>
-            Quntity
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            SaleDetailID
         </th>
     </tr>
     @foreach (var item in Model.saleDetails)
     {
+
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.Name)
@@ -62,10 +69,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleDetailId)
+            </td>
         </tr>
-    }
+    }  
 
 </table>
+
+<div>
+    @Html.Editor("SaleDetailsId", "SaleDetailsId","SaleDetailsId");
+    @Html.ActionLink("Refund", "Refund", "ReturnItems", new { @class = "btn btn-primary" })
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ReturnCode }) |
     @Html.ActionLink("Back to List", "Index")

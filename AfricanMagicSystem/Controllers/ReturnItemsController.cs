@@ -38,6 +38,8 @@ namespace AfricanMagicSystem.Controllers
                 return HttpNotFound();
             }
             return View(returnItem);
+
+
         }
 
         // GET: ReturnItems/Create
@@ -130,6 +132,19 @@ namespace AfricanMagicSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // POST: ReturnItems/Refund/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Refund(FormCollection form)
+        {
+            string detailId = "";
+            detailId = form["SaleDetailId"];
+
+            return View();
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {
