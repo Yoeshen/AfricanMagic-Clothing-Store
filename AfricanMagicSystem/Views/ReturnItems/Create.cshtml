@@ -1,17 +1,17 @@
 ﻿@model AfricanMagicSystem.Models.ReturnItem
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Return";
 }
 
-<h2>Create</h2>
+<h2>Submit a return request</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ReturnItem</h4>
+        <h4>Return an item here. Please enter your invoice number, name and reason for returning your order. Keep in mind that returns are only allowed for orders under 7 days.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -46,6 +46,3 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

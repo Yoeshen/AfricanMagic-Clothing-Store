@@ -71,16 +71,16 @@ namespace AfricanMagicSystem.Controllers
                         returnItem.Status = "Pending";
                         db.ReturnItems.Add(returnItem);
                         db.SaveChanges();
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Success");
                     }
                     else
                     {
                         return View("Invalid");
                     }
                 }
-            }
 
-            return View("Success");
+            }
+            return View(returnItem);
         }
 
         // GET: ReturnItems/Edit/5
