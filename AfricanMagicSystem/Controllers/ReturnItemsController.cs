@@ -73,12 +73,9 @@ namespace AfricanMagicSystem.Controllers
                         db.SaveChanges();
                         return View("Success");
                     }
-                    else
-                    {
-                        return View("Invalid");
-                    }
+                    
                 }
-
+                return View("Invalid");
             }
             return View(returnItem);
         }
