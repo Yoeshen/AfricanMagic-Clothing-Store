@@ -14,8 +14,9 @@
 
 body {
     box-sizing: border-box;
-    font-family: 'Roboto Condensed', 'Roboto', 'Krona One', 'Oswald', sans-serif;
-    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
     line-height: 1.7;
     color: #777;
     margin-top: 5rem;
@@ -563,7 +564,7 @@ input:focus {
     height: 50vh;
     width: auto;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-content: center;
 }

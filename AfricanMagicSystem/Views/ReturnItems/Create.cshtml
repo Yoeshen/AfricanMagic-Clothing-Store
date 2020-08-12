@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Return an item here. Please enter your invoice number, name and reason for returning your order. Keep in mind that returns are only allowed for orders under 7 days.</h4>
+        <h4>Please enter your invoice number, name and reason for returning your order. Keep in mind that returns are only allowed for orders under 7 days.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
