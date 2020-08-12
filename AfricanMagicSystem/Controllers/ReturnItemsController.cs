@@ -71,7 +71,7 @@ namespace AfricanMagicSystem.Controllers
                         returnItem.Status = "Pending";
                         db.ReturnItems.Add(returnItem);
                         db.SaveChanges();
-                        return RedirectToAction("Success");
+                        return View("Success");
                     }
                     else
                     {

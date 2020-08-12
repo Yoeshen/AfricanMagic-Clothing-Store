@@ -351,7 +351,6 @@ namespace AfricanMagicSystem.Controllers
             }
         }
 
-        //Not used for this semester
         // GET: /Checkout/Complete
         public ActionResult Complete(int id)
         {
