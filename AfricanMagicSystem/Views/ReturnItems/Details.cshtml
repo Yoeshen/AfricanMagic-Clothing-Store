@@ -80,10 +80,21 @@
 
 </table>
 
-<div>
+<!--<div>
     @Html.Editor("SaleDetailsId", "SaleDetailsId","SaleDetailsId");
     @Html.ActionLink("Refund", "Refund", "ReturnItems", new { @class = "btn btn-primary" })
-</div>
+</div>-->
+<!--<form action="Refund" method="post">
+    <input name="ValueinNeed" type="text"/>
+    <input type="submit" value="Refund"/>
+</form>-->
+
+@using (Html.BeginForm("Refund","ReturnItems"))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" name="Value"/>
+    <input type="submit" />
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ReturnCode }) |
     @Html.ActionLink("Back to List", "Index")

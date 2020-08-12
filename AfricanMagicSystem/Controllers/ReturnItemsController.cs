@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
@@ -136,12 +138,77 @@ namespace AfricanMagicSystem.Controllers
         // POST: ReturnItems/Refund/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Refund(FormCollection form)
+        public ActionResult Refund(string value)
         {
-            string detailId = "";
-            detailId = form["SaleDetailId"];
+            //string detailId = "";
+            //detailId = form["SaleDetailsId"];
 
-            return View();
+            string[] id = value.Split(',');
+            int[] ids = new int[id.Length]; 
+            
+            for(int i = 0; i < id.Length; i++)
+            {
+                ids[i] = int.Parse(id[i]);
+            }
+
+            List<SaleDetail> saleDetails = (from x in db.SalesDetails
+                                            select x).ToList();
+            List<ReturnItem> returnItems = (from z in db.ReturnItems
+                                            select z).ToList();
+
+            decimal RefundPrice = 0;
+            for(int y = 0; y < ids.Length; y++)
+            {
+                foreach(var check in saleDetails)
+                {
+                    if(check.SaleDetailId == ids[y])
+                    {
+                        RefundPrice += (check.Product.Price * check.Quantity);
+                        foreach(var look in returnItems)
+                        {
+                            if(look.InvoiceNumber == check.SaleId)
+                            {
+                                look.Status = "Completed";
+                                db.Entry(look).State = EntityState.Modified;
+                                db.SaveChanges();
+                            }
+                        }
+                    }
+
+                }
+            }
+            string name = "Refund" ;
+            string description = "This is a once-off payment";
+
+            string site = "https://sandbox.payfast.co.za/eng/process";
+            string merchant_id = "";
+            string merchant_key = "";
+
+            string paymentMode = System.Configuration.ConfigurationManager.AppSettings["PaymentMode"];
+
+            if (paymentMode == "test")
+            {
+                site = "https://sandbox.payfast.co.za/eng/process?";
+                merchant_id = "10000100";
+                merchant_key = "46f0cd694581a";
+            }
+
+            // Build the query string for payment site
+
+            StringBuilder str = new StringBuilder();
+            str.Append("merchant_id=" + HttpUtility.UrlEncode(merchant_id));
+            str.Append("&merchant_key=" + HttpUtility.UrlEncode(merchant_key));
+            str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
+            str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
+            str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
+
+            
+            str.Append("&amount=" + HttpUtility.UrlEncode(RefundPrice.ToString()));
+            str.Append("&item_name=" + HttpUtility.UrlEncode(name));
+            str.Append("&item_description=" + HttpUtility.UrlEncode(description));
+            // Redirect to PayFast
+            return Redirect(site + str.ToString());
+           // return View();
         }
 
 
