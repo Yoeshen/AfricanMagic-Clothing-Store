@@ -37,6 +37,20 @@ h2 {
     color: black;
 }
 
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: black;
+}
+
+h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
