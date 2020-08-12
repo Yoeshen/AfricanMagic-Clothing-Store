@@ -34,7 +34,7 @@ namespace AfricanMagicSystem.Controllers
             var orderDetails = db.SalesDetails.Where(x => x.SaleId == returnItem.InvoiceNumber);
 
             returnItem.saleDetails = orderDetails.ToList();
-            
+
             if (returnItem == null)
             {
                 return HttpNotFound();
@@ -61,12 +61,12 @@ namespace AfricanMagicSystem.Controllers
 
             if (ModelState.IsValid)
             {
-                foreach(var d in chck)
+                foreach (var d in chck)
                 {
                     DateTime saledate = d.SaleDate;
                     TimeSpan diff = currentdate.Subtract(saledate);
 
-                    if(d.SaleId == returnItem.InvoiceNumber && diff.TotalDays < 7)
+                    if (d.SaleId == returnItem.InvoiceNumber && diff.TotalDays < 7)
                     {
                         returnItem.Status = "Pending";
                         db.ReturnItems.Add(returnItem);
@@ -74,7 +74,7 @@ namespace AfricanMagicSystem.Controllers
                         return RedirectToAction("Index");
                     }
                 }
-                
+
             }
 
             return View(returnItem);
@@ -140,13 +140,14 @@ namespace AfricanMagicSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Refund(string value)
         {
+
             //string detailId = "";
             //detailId = form["SaleDetailsId"];
 
             string[] id = value.Split(',');
-            int[] ids = new int[id.Length]; 
-            
-            for(int i = 0; i < id.Length; i++)
+            int[] ids = new int[id.Length];
+
+            for (int i = 0; i < id.Length; i++)
             {
                 ids[i] = int.Parse(id[i]);
             }
@@ -157,16 +158,16 @@ namespace AfricanMagicSystem.Controllers
                                             select z).ToList();
 
             decimal RefundPrice = 0;
-            for(int y = 0; y < ids.Length; y++)
+            for (int y = 0; y < ids.Length; y++)
             {
-                foreach(var check in saleDetails)
+                foreach (var check in saleDetails)
                 {
-                    if(check.SaleDetailId == ids[y])
+                    if (check.SaleDetailId == ids[y])
                     {
                         RefundPrice += (check.Product.Price * check.Quantity);
-                        foreach(var look in returnItems)
+                        foreach (var look in returnItems)
                         {
-                            if(look.InvoiceNumber == check.SaleId)
+                            if (look.InvoiceNumber == check.SaleId)
                             {
                                 look.Status = "Completed";
                                 db.Entry(look).State = EntityState.Modified;
@@ -174,10 +175,14 @@ namespace AfricanMagicSystem.Controllers
                             }
                         }
                     }
+                    else
+                    {
+                        return View("Invalid");
+                    }
 
                 }
             }
-            string name = "Refund" ;
+            string name = "Refund";
             string description = "This is a once-off payment";
 
             string site = "https://sandbox.payfast.co.za/eng/process";
@@ -202,12 +207,13 @@ namespace AfricanMagicSystem.Controllers
             str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
             str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
 
-            
+
             str.Append("&amount=" + HttpUtility.UrlEncode(RefundPrice.ToString()));
             str.Append("&item_name=" + HttpUtility.UrlEncode(name));
             str.Append("&item_description=" + HttpUtility.UrlEncode(description));
             // Redirect to PayFast
             return Redirect(site + str.ToString());
+                   
            // return View();
         }
 
