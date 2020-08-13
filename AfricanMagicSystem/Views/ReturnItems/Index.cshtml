@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<AfricanMagicSystem.Models.ReturnItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Support";
 }
 
-<h2>Index</h2>
+<h2>Return Requests</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -40,8 +37,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReturnCode }) |
+        <td> 
             @Html.ActionLink("Details", "Details", new { id=item.ReturnCode }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ReturnCode })
         </td>

@@ -87,7 +87,7 @@
                 @foreach (var item in Model)
                 {
                 <div class="card">
-                    <a href="Details/@item.ID"><img src="@Url.Action("RenderImage", new { id = item.ID})" alt="card image" class="card__image"></a>
+                    <a href="Products/Details/@item.ID"><img src="@Url.Action("RenderImage", new { id = item.ID})" alt="card image" class="card__image"></a>
                     <div class="card__info">
                         <h3 class="card__info--primary"> @Html.DisplayFor(modelItem => item.Name)</h3>
                         <h3 class="card__info--secondary">R @Html.DisplayFor(modelItem => item.Price)</h3>

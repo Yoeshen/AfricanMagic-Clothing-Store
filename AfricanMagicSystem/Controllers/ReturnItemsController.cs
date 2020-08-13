@@ -199,9 +199,9 @@ namespace AfricanMagicSystem.Controllers
             StringBuilder str = new StringBuilder();
             str.Append("merchant_id=" + HttpUtility.UrlEncode(merchant_id));
             str.Append("&merchant_key=" + HttpUtility.UrlEncode(merchant_key));
-            str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
+            str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
             str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
-            str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
+            str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
 
 
             str.Append("&amount=" + HttpUtility.UrlEncode(RefundPrice.ToString()));
