@@ -606,6 +606,8 @@
     <Content Include="Views\ReturnItems\Index.cshtml" />
     <Content Include="Views\ReturnItems\Invalid.cshtml" />
     <Content Include="Views\ReturnItems\Success.cshtml" />
+    <Content Include="Views\Analytics\Popular.cshtml" />
+    <Content Include="Views\Analytics\TotalSalesAmount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

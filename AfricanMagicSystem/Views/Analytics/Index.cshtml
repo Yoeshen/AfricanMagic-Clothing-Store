@@ -187,6 +187,20 @@
 </script>
 <div>
     <div>
+        @using (Html.BeginForm("Popular", "Analytics"))
+        {
+            @Html.AntiForgeryToken();
+            <input type="submit" value="View Popular Items" class="btn btn-primary" />}
+    </div>
+    <br />
+    <div>
+        @using (Html.BeginForm("TotalSalesAmount", "Analytics"))
+        {
+            @Html.AntiForgeryToken();
+            <input type="submit" value="View Total Sales Amount" class="btn btn-primary" />}
+    </div>
+    <br />
+    <div>
         @Html.ActionLink("Export Sales", "ExportSales", "Analytics", new { @class = "btn btn-primary" })
     </div>
     <br />

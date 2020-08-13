@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Popular";
+}
+
+<h2>Popular Items</h2>
+<h3>Top 5 most popular items based on sale details.</h3>
+
+<br />
+<ul>
+    @foreach (var item in (List<string>)ViewBag.ListName)
+    {
+        <li>
+            @item
+        </li>
+    }
+</ul>
+<br />
+@Html.ActionLink("Back To Analytics", "Index", "Analytics")
