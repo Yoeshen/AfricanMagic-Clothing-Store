@@ -19,6 +19,6 @@ namespace AfricanMagicSystem.Models
         public string OrderStatus { get; set; }
 
         public virtual Sale sale { get; set; }
-
+         
     }
 }
