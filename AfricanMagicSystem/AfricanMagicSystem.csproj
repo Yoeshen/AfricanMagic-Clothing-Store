@@ -463,6 +463,14 @@
     <Compile Include="Migrations\202010140923302_Delivery.designer.cs">
       <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010141504099_SupplierV1.cs" />
+    <Compile Include="Migrations\202010141504099_SupplierV1.designer.cs">
+      <DependentUpon>202010141504099_SupplierV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010141507404_SupplierV1.1.cs" />
+    <Compile Include="Migrations\202010141507404_SupplierV1.1.designer.cs">
+      <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -477,6 +485,7 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\SupplierShipping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\SaleDateGroup.cs" />
@@ -648,6 +657,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010140923302_Delivery.resx">
       <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010141504099_SupplierV1.resx">
+      <DependentUpon>202010141504099_SupplierV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010141507404_SupplierV1.1.resx">
+      <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
