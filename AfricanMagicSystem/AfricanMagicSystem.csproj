@@ -422,6 +422,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Classes\RewardCalculation.cs" />
     <Compile Include="Configuration\AppConfigurations.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -457,6 +458,10 @@
     <Compile Include="Migrations\202010111151529_AddedPoints.cs" />
     <Compile Include="Migrations\202010111151529_AddedPoints.designer.cs">
       <DependentUpon>202010111151529_AddedPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010140923302_Delivery.cs" />
+    <Compile Include="Migrations\202010140923302_Delivery.designer.cs">
+      <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -640,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010111151529_AddedPoints.resx">
       <DependentUpon>202010111151529_AddedPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010140923302_Delivery.resx">
+      <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
