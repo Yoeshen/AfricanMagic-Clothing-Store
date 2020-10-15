@@ -446,6 +446,7 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\SupplierShipController.cs" />
+    <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -843,6 +844,8 @@
     <Content Include="Views\Analytics\Popular.cshtml" />
     <Content Include="Views\Analytics\TotalSalesAmount.cshtml" />
     <Content Include="Views\SupplierShip\Index.cshtml" />
+    <Content Include="Views\Tracking\Details.cshtml" />
+    <Content Include="Views\Tracking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

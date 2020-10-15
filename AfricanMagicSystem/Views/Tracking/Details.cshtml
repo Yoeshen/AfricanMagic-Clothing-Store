@@ -1,0 +1,50 @@
+﻿@model AfricanMagicSystem.Models.Delivery
+
+@{
+    ViewBag.Title = "Order Tracking";
+}
+
+<h2>Order Status</h2>
+
+<div>
+    <h4>Sale #@Model.SaleId</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Order Status:")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatus)
+        </dd>
+        <dt>
+            @Html.DisplayName("Delivery Address:")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sale.Address)
+        </dd>
+        <dt>
+            @Html.DisplayName("Deliver To:")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sale.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayName("Detailed Order:")
+        </dt>
+        <dd>
+            <ul>
+                @foreach (var item in (List<string>)ViewBag.Products)
+                {
+                    <li>
+                        @item
+                    </li>
+                }
+            </ul>
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back To Order History", "Index")
+</p>

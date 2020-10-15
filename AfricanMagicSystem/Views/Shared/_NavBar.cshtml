@@ -1,8 +1,8 @@
 ﻿<div class="bs-component">
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">            
-                @Html.ActionLink("AfricanMagic", "Index", "Home", null, new { @class = "navbar-brand" })          
-            
+        <div class="navbar-header">
+            @Html.ActionLink("AfricanMagic", "Index", "Home", null, new { @class = "navbar-brand" })
+
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -17,7 +17,7 @@
                             <li>@Html.ActionLink("Analytics", "Index", "Analytics")</li>
                             <li>@Html.ActionLink("Deliveries", "Index", "Deliveries")</li>
                             <li>@Html.ActionLink("Support", "Index", "ReturnItems")</li>
-                            <li>@Html.ActionLink("Supplier","Index","SupplierShip")</li>
+                            <li>@Html.ActionLink("Supplier", "Index", "SupplierShip")</li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Roles Admin</li>
                             <li>@Html.ActionLink("Manage User Roles", "Index", "RolesAdmin")</li>
@@ -25,8 +25,9 @@
                         </ul>
                     </li>
                 }
+
                 <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us <b class="caret"></b></a>
                     <ul class="dropdown-menu">
