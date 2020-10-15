@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AfricanMagicSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,15 @@ namespace AfricanMagicSystem.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            using (ApplicationDbContext dc = new ApplicationDbContext())
+            {
+                var events = dc.supplierShippings.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
         }
     }
 }
