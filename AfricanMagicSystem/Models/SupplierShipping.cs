@@ -16,10 +16,14 @@ namespace AfricanMagicSystem.Models
 
         public string Description { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public  Nullable<System.DateTime> EndTime { get; set; }
 
         public string ThemeColour { get; set; }
+
+        public bool IsFullDay { get; set; }
+
+
     }
 }

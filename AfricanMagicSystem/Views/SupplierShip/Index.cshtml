@@ -9,7 +9,7 @@
 <div id="Calender"></div>
 
 
-<!--<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -26,8 +26,8 @@
     </div>
 </div>
 
-<link href="// cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
-<link href="// cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -38,7 +38,7 @@
             var events = [];
             $.ajax({
                 type: "GET",
-                url: "/Home/GetEvents",
+                url: "/home/GetEvents",
                 success: function (data) {
                     $.each(data, function (i, v) {
                         events.push({
@@ -88,21 +88,5 @@
             }
         })
     </script>
-}-->
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Shipping Information</title>
-    <style>
-        body {
-            background-color : #eee;
-        }
-    </style>
-</head>
-<body>
-    <div style="height:700px;width:900px;margin:0 auto">
-        @Html.Raw(Model.Render());
-    </div>
-</body>
-</html>

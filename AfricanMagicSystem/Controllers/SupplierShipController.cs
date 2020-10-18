@@ -16,15 +16,15 @@ namespace AfricanMagicSystem.Controllers
         // GET: SupplierShip
         public ActionResult Index()
         {
-            var sched = new DHXScheduler(this);
+            /*var sched = new DHXScheduler(this);
             sched.Skin = DHXScheduler.Skins.Terrace;
             sched.LoadData = true;
             sched.EnableDataprocessor = true;
-            sched.InitialDate = new DateTime(2020,10,15);
-            return View(sched);
+            sched.InitialDate = new DateTime(2020,10,15);*/
+            return View();
         }
 
-        public ContentResult Data()
+        /*public ContentResult Data()
         {
             return new SchedulerAjaxData(new ApplicationDbContext().supplierShippings.Select(e => new { e.ShippingID, e.Subject, e.StartTime, e.EndTime }));
         }
@@ -59,6 +59,6 @@ namespace AfricanMagicSystem.Controllers
             }
             
        return (new AjaxSaveResponse(action));
-        }
+        }*/
     }
 }

@@ -476,6 +476,10 @@
     <Compile Include="Migrations\202010141507404_SupplierV1.1.designer.cs">
       <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010181306594_UpdatedCalendarV2.cs" />
+    <Compile Include="Migrations\202010181306594_UpdatedCalendarV2.designer.cs">
+      <DependentUpon>202010181306594_UpdatedCalendarV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -883,6 +887,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010141507404_SupplierV1.1.resx">
       <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010181306594_UpdatedCalendarV2.resx">
+      <DependentUpon>202010181306594_UpdatedCalendarV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
