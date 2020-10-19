@@ -452,9 +452,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010191659459_19-October-ImportedOldDB.cs" />
-    <Compile Include="Migrations\202010191659459_19-October-ImportedOldDB.designer.cs">
-      <DependentUpon>202010191659459_19-October-ImportedOldDB.cs</DependentUpon>
+    <Compile Include="Migrations\202010191943288_NeedToFixDBDrop.cs" />
+    <Compile Include="Migrations\202010191943288_NeedToFixDBDrop.designer.cs">
+      <DependentUpon>202010191943288_NeedToFixDBDrop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -846,8 +846,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010191659459_19-October-ImportedOldDB.resx">
-      <DependentUpon>202010191659459_19-October-ImportedOldDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010191943288_NeedToFixDBDrop.resx">
+      <DependentUpon>202010191943288_NeedToFixDBDrop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

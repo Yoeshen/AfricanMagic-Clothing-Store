@@ -110,7 +110,8 @@ namespace AfricanMagicSystem.Controllers
                 var delivery = new Delivery
                 {
                     SaleId = sale.SaleId,
-                    OrderStatus = "Pending"
+                    OrderStatus = "Pending",
+                    CurrentLocation = "95 Monty Naicker Rd, Durban Central, Durban, 4001, South Africa"
                 };
                 dB.Deliveries.Add(delivery);
                 dB.Sales.Add(sale);

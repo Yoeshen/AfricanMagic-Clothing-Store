@@ -25,17 +25,31 @@ namespace AfricanMagicSystem.Controllers
         {
             Delivery delivery = db.Deliveries.Find(id);
 
-            Product product = db.Products.Find(id);
+            var orderDetail = db.SalesDetails.Where(order => order.SaleId == id);
 
-            var orderDetails = db.SalesDetails.Where(x => x.ProductId == product.ID);
-                       
+            decimal total = 0;
+            
             List<string> ListOfItems = new List<string>();
-            foreach (var r in orderDetails)
-            {
-                ListOfItems.Add(r.Product.Name);
-            }
 
+            var products = from product in db.Products
+                           join sale in orderDetail on 
+                           product.ID equals sale.ProductId
+                           select new { oName = product.Name , oQuantity = sale.Quantity, oPrice = sale.UnitPrice};
+
+            foreach (var item in products)
+            {
+                string productName = item.oName;
+                int productQuantity = item.oQuantity;
+                decimal productPrice = item.oPrice;
+                total = total + item.oPrice ;
+                string itemConCatted = productQuantity.ToString() + " " + productName + " | R" + item.oPrice.ToString();
+                ListOfItems.Add(itemConCatted);
+            }
+            string final = "R" + total.ToString();
             ViewBag.Products = ListOfItems;
+            ViewBag.Total =  final;
+
+            ViewBag.CurrentLocation = delivery.CurrentLocation;
 
             return View(delivery);
         }

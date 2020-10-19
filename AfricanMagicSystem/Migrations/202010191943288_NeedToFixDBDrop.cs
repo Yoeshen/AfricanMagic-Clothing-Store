@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _19OctoberImportedOldDB : DbMigration
+    public partial class NeedToFixDBDrop : DbMigration
     {
         public override void Up()
         {
