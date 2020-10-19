@@ -452,33 +452,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008111308583_Af3.cs" />
-    <Compile Include="Migrations\202008111308583_Af3.designer.cs">
-      <DependentUpon>202008111308583_Af3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008121346376_AF3update.cs" />
-    <Compile Include="Migrations\202008121346376_AF3update.designer.cs">
-      <DependentUpon>202008121346376_AF3update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010111151529_AddedPoints.cs" />
-    <Compile Include="Migrations\202010111151529_AddedPoints.designer.cs">
-      <DependentUpon>202010111151529_AddedPoints.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010140923302_Delivery.cs" />
-    <Compile Include="Migrations\202010140923302_Delivery.designer.cs">
-      <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010141504099_SupplierV1.cs" />
-    <Compile Include="Migrations\202010141504099_SupplierV1.designer.cs">
-      <DependentUpon>202010141504099_SupplierV1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010141507404_SupplierV1.1.cs" />
-    <Compile Include="Migrations\202010141507404_SupplierV1.1.designer.cs">
-      <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010181306594_UpdatedCalendarV2.cs" />
-    <Compile Include="Migrations\202010181306594_UpdatedCalendarV2.designer.cs">
-      <DependentUpon>202010181306594_UpdatedCalendarV2.cs</DependentUpon>
+    <Compile Include="Migrations\202010191659459_19-October-ImportedOldDB.cs" />
+    <Compile Include="Migrations\202010191659459_19-October-ImportedOldDB.designer.cs">
+      <DependentUpon>202010191659459_19-October-ImportedOldDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -870,26 +846,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008111308583_Af3.resx">
-      <DependentUpon>202008111308583_Af3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008121346376_AF3update.resx">
-      <DependentUpon>202008121346376_AF3update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010111151529_AddedPoints.resx">
-      <DependentUpon>202010111151529_AddedPoints.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010140923302_Delivery.resx">
-      <DependentUpon>202010140923302_Delivery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010141504099_SupplierV1.resx">
-      <DependentUpon>202010141504099_SupplierV1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010141507404_SupplierV1.1.resx">
-      <DependentUpon>202010141507404_SupplierV1.1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010181306594_UpdatedCalendarV2.resx">
-      <DependentUpon>202010181306594_UpdatedCalendarV2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010191659459_19-October-ImportedOldDB.resx">
+      <DependentUpon>202010191659459_19-October-ImportedOldDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

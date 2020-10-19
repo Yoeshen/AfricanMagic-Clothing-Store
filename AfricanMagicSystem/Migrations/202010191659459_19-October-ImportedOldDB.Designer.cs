@@ -7,13 +7,13 @@ namespace AfricanMagicSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AF3update : IMigrationMetadata
+    public sealed partial class _19OctoberImportedOldDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AF3update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_19OctoberImportedOldDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008121346376_AF3update"; }
+            get { return "202010191659459_19-October-ImportedOldDB"; }
         }
         
         string IMigrationMetadata.Source

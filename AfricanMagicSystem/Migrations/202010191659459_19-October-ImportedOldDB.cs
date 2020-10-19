@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SupplierV11 : DbMigration
+    public partial class _19OctoberImportedOldDB : DbMigration
     {
         public override void Up()
         {
@@ -15,15 +15,18 @@
                         Subject = c.String(),
                         Description = c.String(),
                         StartTime = c.DateTime(nullable: false),
-                        EndTime = c.DateTime(nullable: false),
+                        EndTime = c.DateTime(),
                         ThemeColour = c.String(),
+                        IsFullDay = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ShippingID);
             
+            AddColumn("dbo.Deliveries", "CurrentLocation", c => c.String());
         }
         
         public override void Down()
         {
+            DropColumn("dbo.Deliveries", "CurrentLocation");
             DropTable("dbo.SupplierShippings");
         }
     }
