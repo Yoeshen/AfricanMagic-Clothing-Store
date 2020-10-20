@@ -12,6 +12,10 @@
     box-sizing: inherit;
 }
 
+#map {
+    height: 400px;
+    width: 600px;
+}
 
 body {
     box-sizing: border-box;

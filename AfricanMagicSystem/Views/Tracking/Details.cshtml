@@ -4,6 +4,15 @@
     ViewBag.Title = "Order Tracking";
 }
 
+
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        width: 600px;
+    }
+</style>
+
 <h2>Order Status</h2>
 
 <div>
@@ -47,16 +56,25 @@
         <dd>
             @ViewBag.Total
         </dd>
-        <dt>
-            @Html.DisplayName("Current Location:")
-        </dt>
-        <dd>
-            @ViewBag.CurrentLocation
-        </dd>
-
-
     </dl>
+
+    <h3>Package Location:</h3>
+    <h4>@ViewBag.CurrentLocation </h4>
 </div>
+
+<br />
+<iframe width="800"
+        height="480"
+        frameborder="0" style="position : relative; left : 15%;"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyDGQDyFapB5Q_YGUANNY1TOf27tqR1JQ6w&origin='@ViewBag.CurrentLocation'&destination='@ViewBag.DeliveryAddress'&avoid=tolls|highways" allowfullscreen>
+</iframe>
+
+<br />
+<br />
+<br />
+
+
 <p>
     @Html.ActionLink("Back To Order History", "Index")
 </p>
+

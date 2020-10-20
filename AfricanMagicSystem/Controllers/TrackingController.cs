@@ -49,6 +49,7 @@ namespace AfricanMagicSystem.Controllers
             ViewBag.Products = ListOfItems;
             ViewBag.Total =  final;
 
+            ViewBag.DeliveryAddress = delivery.sale.Address;
             ViewBag.CurrentLocation = delivery.CurrentLocation;
 
             return View(delivery);
