@@ -5,8 +5,7 @@
 }
 
 <h2>Create</h2>
-
-<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" type="text/css"/>
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
 
 @using (Html.BeginForm())
@@ -34,10 +33,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -69,10 +76,9 @@
                 yearRange: "-60:+0",
                 gotoCurrent: true,
                 timeFormat: "hh:mm TT"
-                
+
             });
 
         });
     </script>
-
 }
