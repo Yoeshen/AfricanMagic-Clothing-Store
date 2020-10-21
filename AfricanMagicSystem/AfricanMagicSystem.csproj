@@ -465,6 +465,10 @@
     <Compile Include="Migrations\202010211235472_UPdatedDateTime.designer.cs">
       <DependentUpon>202010211235472_UPdatedDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010211250071_FinalUPdateShipping.cs" />
+    <Compile Include="Migrations\202010211250071_FinalUPdateShipping.designer.cs">
+      <DependentUpon>202010211250071_FinalUPdateShipping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -964,6 +968,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010211235472_UPdatedDateTime.resx">
       <DependentUpon>202010211235472_UPdatedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010211250071_FinalUPdateShipping.resx">
+      <DependentUpon>202010211250071_FinalUPdateShipping.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
