@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using GrapeCity.DataVisualization.TypeScript;
+using System.Web.Mvc;
 
 namespace AfricanMagicSystem.Models
 {
+    [Bind(Exclude = "ShippingID")]
     public class SupplierShipping
     {
         [Key]
@@ -17,12 +19,6 @@ namespace AfricanMagicSystem.Models
         public string Description { get; set; }
 
         public System.DateTime StartTime { get; set; }
-
-        public  Nullable<System.DateTime> EndTime { get; set; }
-
-        public string ThemeColour { get; set; }
-
-        public bool IsFullDay { get; set; }
 
 
     }
