@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="/Content/card.css">
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -22,6 +23,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required : false)
+    @Scripts.Render("~/bundles/jqueryui")
+   
+    @RenderSection("Scripts", required : false)
 </body>
 </html>

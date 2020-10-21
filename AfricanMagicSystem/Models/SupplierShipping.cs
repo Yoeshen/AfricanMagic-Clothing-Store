@@ -18,7 +18,9 @@ namespace AfricanMagicSystem.Models
 
         public string Description { get; set; }
 
-        public System.DateTime StartTime { get; set; }
+        public System.DateTime Date { get; set; }
+
+        public string Time { get; set; }
 
 
     }
