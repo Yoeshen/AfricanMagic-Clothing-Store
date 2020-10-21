@@ -54,5 +54,7 @@ namespace AfricanMagicSystem.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AfricanMagicSystem.Models.BulkOrderImages> BulkOrderImages { get; set; }
     }
 }
