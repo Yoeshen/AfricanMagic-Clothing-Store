@@ -430,7 +430,6 @@
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalyticsController.cs" />
-    <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\DeliveryController.cs" />
@@ -474,11 +473,17 @@
     <Compile Include="Migrations\202010212011219_BulkOrdersV1.designer.cs">
       <DependentUpon>202010212011219_BulkOrdersV1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010221822410_TablesForBulk.cs" />
+    <Compile Include="Migrations\202010221822410_TablesForBulk.designer.cs">
+      <DependentUpon>202010221822410_TablesForBulk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
     <Compile Include="Models\Analytics.cs" />
     <Compile Include="Models\BulkOrderImages.cs" />
+    <Compile Include="Models\BulkOrderSaleDetails.cs" />
+    <Compile Include="Models\BulkOrderSales.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -489,6 +494,7 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\SupplierShipping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -1042,11 +1048,6 @@
     <Content Include="Views\SupplierShippings\Details.cshtml" />
     <Content Include="Views\SupplierShippings\Edit.cshtml" />
     <Content Include="Views\SupplierShippings\Index.cshtml" />
-    <Content Include="Views\BulkOrderImages\Create.cshtml" />
-    <Content Include="Views\BulkOrderImages\Delete.cshtml" />
-    <Content Include="Views\BulkOrderImages\Details.cshtml" />
-    <Content Include="Views\BulkOrderImages\Edit.cshtml" />
-    <Content Include="Views\BulkOrderImages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1081,6 +1082,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010212011219_BulkOrdersV1.resx">
       <DependentUpon>202010212011219_BulkOrdersV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010221822410_TablesForBulk.resx">
+      <DependentUpon>202010221822410_TablesForBulk.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
