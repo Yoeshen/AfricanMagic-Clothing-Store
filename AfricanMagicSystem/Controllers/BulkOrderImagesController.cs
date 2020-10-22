@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
+using PagedList;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -16,9 +17,49 @@ namespace AfricanMagicSystem.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BulkOrderImages
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(await db.BulkOrderImages.ToListAsync());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var items = from i in db.BulkOrderImages
+                        select i;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper())
+                                       );
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    items = items.OrderByDescending(s => s.Name);
+                    break;
+                case "Price":
+                    items = items.OrderBy(s => s.price);
+                    break;
+                case "price_desc":
+                    items = items.OrderByDescending(s => s.price);
+                    break;
+                default:  // Sort By Name ASC
+                    items = items.OrderBy(s => s.Name);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(items.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: BulkOrderImages/Details/5
@@ -110,6 +151,15 @@ namespace AfricanMagicSystem.Controllers
             db.BulkOrderImages.Remove(bulkOrderImages);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public async Task<ActionResult> RenderImage(int id)
+        {
+            BulkOrderImages bulkOrderImages = await db.BulkOrderImages.FindAsync(id);
+
+            byte[] photoBack = bulkOrderImages.InternalImage;
+
+            return File(photoBack, "image/png");
         }
 
         protected override void Dispose(bool disposing)
