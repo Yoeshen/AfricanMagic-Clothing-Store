@@ -1,0 +1,62 @@
+﻿@model AfricanMagicSystem.Models.BulkOrderImages
+
+@{
+    ViewBag.Title = "Bulk Product List";
+}
+
+<h2>Bulk Products</h2>
+
+<div class="two-column-grid">
+    <div class="column--1"></div>
+    <div class="column--2">
+        <img src="@Url.Action("RenderImage", new { id = Model.ID})" alt="product image" class="productimage"/>
+    </div>
+    <div class="column--3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Colour)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Colour)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

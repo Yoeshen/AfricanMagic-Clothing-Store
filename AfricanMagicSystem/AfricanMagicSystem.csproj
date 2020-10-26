@@ -430,6 +430,7 @@
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalyticsController.cs" />
+    <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\DeliveryController.cs" />
@@ -1052,6 +1053,11 @@
     <Content Include="Views\SupplierShippings\Details.cshtml" />
     <Content Include="Views\SupplierShippings\Edit.cshtml" />
     <Content Include="Views\SupplierShippings\Index.cshtml" />
+    <Content Include="Views\BulkOrderImages\Create.cshtml" />
+    <Content Include="Views\BulkOrderImages\Delete.cshtml" />
+    <Content Include="Views\BulkOrderImages\Details.cshtml" />
+    <Content Include="Views\BulkOrderImages\Edit.cshtml" />
+    <Content Include="Views\BulkOrderImages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
