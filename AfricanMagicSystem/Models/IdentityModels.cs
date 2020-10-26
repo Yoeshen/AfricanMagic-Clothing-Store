@@ -18,8 +18,8 @@ namespace AfricanMagicSystem.Models
         public string PostalCode { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
-        public int? Points { get; set; }
-        public bool? isVerified { get; set; }
+        public string Points { get; set; }
+        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

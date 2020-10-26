@@ -51,7 +51,11 @@ namespace AfricanMagicSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddressAndPayment(FormCollection values)
         {
-
+            decimal points = 0;
+            int oldPoints = 0;
+            int roundPoints = 0;
+            string stringPoints = "";
+            
             if (ModelState.IsValid)
             ViewBag.CreditCardTypes = CreditCardTypes;
             string results = values[9];
@@ -67,16 +71,29 @@ namespace AfricanMagicSystem.Controllers
                 sale.Email = User.Identity.Name;
                 sale.SaleDate = DateTime.Now;
                 sale.Total = cart.GetTotal();
+                points = cart.GetTotal();
+                points = points / 10;
+                Math.Round(points);
+                roundPoints = Convert.ToInt32(points);
+                stringPoints = roundPoints.ToString();
+                
+
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var ctx = store.Context;
+                var currentUser = manager.FindById(User.Identity.GetUserId());
                 var currentUserId = User.Identity.GetUserId();
 
-                if (sale.SaveUserInfo && !sale.Username.Equals("guest@guest.com"))
+                oldPoints = Convert.ToInt32(currentUser.Points);
+
+                stringPoints = (oldPoints + roundPoints).ToString();
+
+                currentUser.Points = stringPoints ;
+
+                if (sale.SaveUserInfo)
                 {
 
-                    var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-                    var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
-                    var ctx = store.Context;
-                    var currentUser = manager.FindById(User.Identity.GetUserId());
-
+                   
                     currentUser.Address = sale.Address;
                     currentUser.City = sale.City;
                     currentUser.Country = sale.Country;
@@ -84,6 +101,9 @@ namespace AfricanMagicSystem.Controllers
                     currentUser.Phone = sale.PhoneNumber;
                     currentUser.PostalCode = sale.PostalCode;
                     currentUser.CustomerFirstName = sale.FirstName;
+                    
+
+                    var result = await manager.UpdateAsync(currentUser);                
 
                     await ctx.SaveChangesAsync();
 
@@ -183,28 +203,28 @@ namespace AfricanMagicSystem.Controllers
                 element.Brush = PdfBrushes.White;
 
                 //Draws the heading on the page
-                PdfLayoutResult result = element.Draw(page, new PointF(10, bounds.Top + 8));
+                PdfLayoutResult res = element.Draw(page, new PointF(10, bounds.Top + 8));
                 string currentDate = "Date Purchased " + sale.SaleDate.ToString();
                 //Measures the width of the text to place it in the correct location
                 SizeF textSize = subHeadingFont.MeasureString(currentDate);
-                PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+                PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, res.Bounds.Y);
                 //Draws the date by using DrawString method
                 graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
                 PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
                 //Creates text elements to add the address and draw it to the page.
                 element = new PdfTextElement("Bill To " + sale.Address.ToString() + ", " + sale.City + ", " + sale.State, timesRoman);
                 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
-                result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+                res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 25));
                 element = new PdfTextElement("Total Price R " + sale.Total.ToString(), timesRoman);
                 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
-                result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+                res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 25));
                 string cardNumFour = sale.CardNumber.Substring(12, 4);
                 element = new PdfTextElement("Card Billed: **** **** **** " + cardNumFour, timesRoman);
                 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
-                result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+                res = element.Draw(page, new PointF(10, res.Bounds.Bottom + 25));
                 PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-                PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-                PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+                PointF startPoint = new PointF(0, res.Bounds.Bottom + 3);
+                PointF endPoint = new PointF(graphics.ClientSize.Width, res.Bounds.Bottom + 3);
                 //Draws a line at the bottom of the address
                 graphics.DrawLine(linePen, startPoint, endPoint);
 
@@ -262,7 +282,7 @@ namespace AfricanMagicSystem.Controllers
                 // Creates layout format settings to allow the table pagination
                 layoutFormat.Layout = PdfLayoutType.Paginate;
                 //Draws the grid to the PDF page.
-                PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
+                PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, res.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
                 MemoryStream outputStream = new MemoryStream();                
                 document.Save(outputStream);
