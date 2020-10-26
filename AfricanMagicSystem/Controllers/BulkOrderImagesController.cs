@@ -163,7 +163,7 @@ namespace AfricanMagicSystem.Controllers
             return File(photoBack, "image/png");
         }
 
-
+        //AddToBulkORderSale Table
         public async Task<ActionResult> AddToQuote(int id)
         {
             var crt = new Storage
