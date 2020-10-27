@@ -165,10 +165,25 @@ namespace AfricanMagicSystem.Controllers
             return File(photoBack, "image/png");
         }
 
+        // GET: BulkOrderImages/Delete/5
+        public async Task<ActionResult> AddToQuote(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BulkOrderImages bulkOrderImages = await db.BulkOrderImages.FindAsync(id);
+            if (bulkOrderImages == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bulkOrderImages);
+        }
+
         //AddToBulkORderSale Table
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddToQuote(int? id)
+        public async Task<ActionResult> AddToQuote(int id)
         {
            
             var chckdb = db.Storages.FirstOrDefault();
@@ -178,7 +193,7 @@ namespace AfricanMagicSystem.Controllers
                 var crt = new Storage
                 {
                     StorageID = 1,
-                    BulkOrderImagesID = id.GetValueOrDefault(),
+                    BulkOrderImagesID = id,
                     Quantity = 1
                 };
 
@@ -195,7 +210,7 @@ namespace AfricanMagicSystem.Controllers
                 var crt = new Storage
                 {
                     StorageID = 1 + check,
-                    BulkOrderImagesID = id.GetValueOrDefault(),
+                    BulkOrderImagesID = id,
                     Quantity = 1
                 };
 
@@ -207,7 +222,7 @@ namespace AfricanMagicSystem.Controllers
                 }
 
             }
-            return View("Details");
+            return View("Index");
         }
 
         protected override void Dispose(bool disposing)

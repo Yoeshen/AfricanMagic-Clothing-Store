@@ -1078,6 +1078,7 @@
     <Content Include="Views\BulkOrderImages\Details.cshtml" />
     <Content Include="Views\BulkOrderImages\Edit.cshtml" />
     <Content Include="Views\BulkOrderImages\Index.cshtml" />
+    <Content Include="Views\BulkOrderImages\AddToQuote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
