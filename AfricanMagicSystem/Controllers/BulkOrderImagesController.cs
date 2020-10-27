@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
 using PagedList;
+using System.Security.Cryptography.X509Certificates;
+using System.Web.UI;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -164,11 +166,19 @@ namespace AfricanMagicSystem.Controllers
         }
 
         //AddToBulkORderSale Table
-        public async Task<ActionResult> AddToQuote(int id)
+        public async Task<ActionResult> AddToQuote(int? id)
         {
-            var crt = new Storage
+           /* int check = int.Parse(db.Storages.OrderByDescending(p => p.PKey).Select(r => r.PKey).First().ToString());
+
+            if(check == 0)
             {
-                BOImageID = id
+                check = 1;
+            }*/
+            
+            /*var crt = new Storage
+            {
+                //PKey = check + 1,
+               // BOImageID = id.GetValueOrDefault()
             };
 
             if (ModelState.IsValid)
@@ -176,7 +186,7 @@ namespace AfricanMagicSystem.Controllers
                 db.Storages.Add(crt);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Details");
-            }
+            }*/
             return View("Details");
         }
 

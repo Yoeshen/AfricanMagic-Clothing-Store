@@ -13,7 +13,7 @@ namespace AfricanMagicSystem.Models
 
         public int BOSaleID { get; set; }
 
-        public int BOImageID { get; set; }
+        public int BulkOrderImagesID { get; set; }
 
         public int BOQuantity { get; set; }
 
@@ -22,7 +22,6 @@ namespace AfricanMagicSystem.Models
         public virtual BulkOrderSales BulkOrderSales { get; set; }
 
         public virtual BulkOrderImages BulkOrderImages { get; set; }
-
 
     }
 }

@@ -486,6 +486,22 @@
     <Compile Include="Migrations\202010261418097_UpdatePoints.designer.cs">
       <DependentUpon>202010261418097_UpdatePoints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010271056405_DeletdTable.cs" />
+    <Compile Include="Migrations\202010271056405_DeletdTable.designer.cs">
+      <DependentUpon>202010271056405_DeletdTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271100492_UdatedStorageTing.cs" />
+    <Compile Include="Migrations\202010271100492_UdatedStorageTing.designer.cs">
+      <DependentUpon>202010271100492_UdatedStorageTing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271107223_DeleteBOSalesDetail.cs" />
+    <Compile Include="Migrations\202010271107223_DeleteBOSalesDetail.designer.cs">
+      <DependentUpon>202010271107223_DeleteBOSalesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271110251_UPdatedBOSaleDetail.cs" />
+    <Compile Include="Migrations\202010271110251_UPdatedBOSaleDetail.designer.cs">
+      <DependentUpon>202010271110251_UPdatedBOSaleDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1105,6 +1121,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010261418097_UpdatePoints.resx">
       <DependentUpon>202010261418097_UpdatePoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271056405_DeletdTable.resx">
+      <DependentUpon>202010271056405_DeletdTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271100492_UdatedStorageTing.resx">
+      <DependentUpon>202010271100492_UdatedStorageTing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271107223_DeleteBOSalesDetail.resx">
+      <DependentUpon>202010271107223_DeleteBOSalesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271110251_UPdatedBOSaleDetail.resx">
+      <DependentUpon>202010271110251_UPdatedBOSaleDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -48,7 +48,6 @@ namespace AfricanMagicSystem.Models
         public DbSet<BulkOrderSales> BulkOrderSales { get; set; }
         public DbSet<Storage> Storages { get; set; }
 
-
         static ApplicationDbContext()
         {
             // Set the database intializer which is run once during application start
