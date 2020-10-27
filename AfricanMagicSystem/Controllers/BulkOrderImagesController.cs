@@ -166,27 +166,47 @@ namespace AfricanMagicSystem.Controllers
         }
 
         //AddToBulkORderSale Table
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddToQuote(int? id)
         {
-           /* int check = int.Parse(db.Storages.OrderByDescending(p => p.PKey).Select(r => r.PKey).First().ToString());
+           
+            var chckdb = db.Storages.FirstOrDefault();
 
-            if(check == 0)
+            if(chckdb == null)
             {
-                check = 1;
-            }*/
-            
-            /*var crt = new Storage
-            {
-                //PKey = check + 1,
-               // BOImageID = id.GetValueOrDefault()
-            };
+                var crt = new Storage
+                {
+                    StorageID = 1,
+                    BulkOrderImagesID = id.GetValueOrDefault(),
+                    Quantity = 1
+                };
 
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
+                {
+                    db.Storages.Add(crt);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Details");
+                }
+            }
+            else
             {
-                db.Storages.Add(crt);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Details");
-            }*/
+                int check = int.Parse(db.Storages.OrderByDescending(p => p.StorageID).Select(r => r.StorageID).First().ToString());
+                var crt = new Storage
+                {
+                    StorageID = 1 + check,
+                    BulkOrderImagesID = id.GetValueOrDefault(),
+                    Quantity = 1
+                };
+
+                if (ModelState.IsValid)
+                {
+                    db.Storages.Add(crt);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Details");
+                }
+
+            }
             return View("Details");
         }
 
