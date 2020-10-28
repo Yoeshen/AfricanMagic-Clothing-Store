@@ -432,6 +432,7 @@
     <Compile Include="Controllers\AnalyticsController.cs" />
     <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CustomerReviewsController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
@@ -517,6 +518,10 @@
     <Compile Include="Migrations\202010281243272_CustomerReviewTable.cs" />
     <Compile Include="Migrations\202010281243272_CustomerReviewTable.designer.cs">
       <DependentUpon>202010281243272_CustomerReviewTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281307392_updatedCustomerReviews.cs" />
+    <Compile Include="Migrations\202010281307392_updatedCustomerReviews.designer.cs">
+      <DependentUpon>202010281307392_updatedCustomerReviews.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1097,6 +1102,11 @@
     <Content Include="Views\BulkOrderImages\Index.cshtml" />
     <Content Include="Views\BulkOrderImages\AddToQuote.cshtml" />
     <Content Include="Views\Products\PointsIndex.cshtml" />
+    <Content Include="Views\CustomerReviews\Create.cshtml" />
+    <Content Include="Views\CustomerReviews\Delete.cshtml" />
+    <Content Include="Views\CustomerReviews\Details.cshtml" />
+    <Content Include="Views\CustomerReviews\Edit.cshtml" />
+    <Content Include="Views\CustomerReviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1164,6 +1174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010281243272_CustomerReviewTable.resx">
       <DependentUpon>202010281243272_CustomerReviewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281307392_updatedCustomerReviews.resx">
+      <DependentUpon>202010281307392_updatedCustomerReviews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

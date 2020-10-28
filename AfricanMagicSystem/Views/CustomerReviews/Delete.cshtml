@@ -1,0 +1,64 @@
+﻿@model AfricanMagicSystem.Models.CustomerReviews
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CustomerReviews</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sale.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flagged)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flagged)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approved)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -17,6 +17,8 @@ namespace AfricanMagicSystem.Models
 
         public int Vote { get; set; }
 
+        public string Comment { get; set; }
+
         public bool Flagged { get; set; }
 
         public bool Approved { get; set; }
