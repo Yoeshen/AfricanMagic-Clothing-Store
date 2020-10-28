@@ -510,6 +510,14 @@
     <Compile Include="Migrations\202010281045003_UPdatedStorageFinal.designer.cs">
       <DependentUpon>202010281045003_UPdatedStorageFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010281241415_CustomerReview.cs" />
+    <Compile Include="Migrations\202010281241415_CustomerReview.designer.cs">
+      <DependentUpon>202010281241415_CustomerReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281243272_CustomerReviewTable.cs" />
+    <Compile Include="Migrations\202010281243272_CustomerReviewTable.designer.cs">
+      <DependentUpon>202010281243272_CustomerReviewTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -518,6 +526,7 @@
     <Compile Include="Models\BulkOrderSaleDetails.cs" />
     <Compile Include="Models\BulkOrderSales.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CustomerReviews.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1149,6 +1158,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010281045003_UPdatedStorageFinal.resx">
       <DependentUpon>202010281045003_UPdatedStorageFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281241415_CustomerReview.resx">
+      <DependentUpon>202010281241415_CustomerReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281243272_CustomerReviewTable.resx">
+      <DependentUpon>202010281243272_CustomerReviewTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

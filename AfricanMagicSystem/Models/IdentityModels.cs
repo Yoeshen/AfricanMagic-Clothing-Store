@@ -47,6 +47,7 @@ namespace AfricanMagicSystem.Models
         public DbSet<BulkOrderSaleDetails> BulkOrderSaleDetails { get; set; }
         public DbSet<BulkOrderSales> BulkOrderSales { get; set; }
         public DbSet<Storage> Storages { get; set; }
+        public DbSet<CustomerReviews> CustomerReview { get; set; }
 
         static ApplicationDbContext()
         {
