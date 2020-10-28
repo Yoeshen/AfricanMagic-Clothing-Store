@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
+
+
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
@@ -16,6 +18,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Account <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Track Order", "Index", "Tracking")</li>
+                        <li>@Html.ActionLink("Redeem Points", "PointsIndex", "Products")</li>
                     </ul>
                 </li>
             }

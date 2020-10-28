@@ -56,6 +56,21 @@ namespace AfricanMagicSystem.Models
             return cartItem.Count;
         }
 
+        public bool hasExclusives()
+        {
+            bool bFlag = false;
+            var listProducts = from products in dbContext.Products
+                               join carts in dbContext.Carts
+                               on products.ID equals carts.ProductId
+                               select new { pointsItem = products.isExclusive };
+
+            foreach (var item in listProducts)
+            {
+
+            }
+            return bFlag;
+        }
+
         public int RemoveFromCart(int id)
         {
 

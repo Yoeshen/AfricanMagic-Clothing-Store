@@ -51,6 +51,7 @@ namespace AfricanMagicSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddressAndPayment(FormCollection values)
         {
+            decimal deliveryFee = 0;
             decimal points = 0;
             int oldPoints = 0;
             int roundPoints = 0;
@@ -63,14 +64,27 @@ namespace AfricanMagicSystem.Controllers
             var sale = new Sale();
             TryUpdateModel(sale);
             sale.CardNumber = results;
-            var cart = ShoppingCart.GetCart(this.HttpContext);
-           
+            var cart = ShoppingCart.GetCart(this.HttpContext);            
+
+
+            int numProducts = 0;
+            numProducts = cart.GetCount();
+            if (numProducts >= 5)
+            {
+                deliveryFee = 165;
+            }
+            else
+            {
+                deliveryFee = 100;
+            }
+
             try
             {
                 sale.Username = User.Identity.Name;
                 sale.Email = User.Identity.Name;
                 sale.SaleDate = DateTime.Now;
-                sale.Total = cart.GetTotal();
+                sale.Total = cart.GetTotal() + deliveryFee;
+                
                 points = cart.GetTotal();
                 points = points / 10;
                 Math.Round(points);
@@ -85,10 +99,8 @@ namespace AfricanMagicSystem.Controllers
                 var currentUserId = User.Identity.GetUserId();
 
                 oldPoints = Convert.ToInt32(currentUser.Points);
-
                 stringPoints = (oldPoints + roundPoints).ToString();
-
-                currentUser.Points = stringPoints ;
+                currentUser.Points = stringPoints;
 
                 if (sale.SaveUserInfo)
                 {
@@ -136,7 +148,7 @@ namespace AfricanMagicSystem.Controllers
                 dB.Deliveries.Add(delivery);
                 dB.Sales.Add(sale);
                 await dB.SaveChangesAsync();
-
+                
                 
                 List<Product> emailNotif = new List<Product>();
                 String emailBody = "";
@@ -173,10 +185,11 @@ namespace AfricanMagicSystem.Controllers
                     }
                 }
                 //Process the order
-                decimal amountTotal = cart.GetTotal();
+                decimal amountTotal = cart.GetTotal() + deliveryFee;
                 int amount = Convert.ToInt32(amountTotal);
                 string orderId = sale.SaleId.ToString();
                 sale = cart.CreateOrder(sale);
+                
 
                 //New Email.
                 //Creates a new PDF document

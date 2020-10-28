@@ -68,6 +68,13 @@ namespace AfricanMagicSystem.Models
         [StringLength(1024)]
         public string ItemPictureUrl { get; set; }
 
+        [DisplayName("Point Store Product")]
+        public bool isExclusive { get; set; }
+
+        [Required(ErrorMessage = "Points Required")]
+        [Range(0.01, 99999.99, ErrorMessage = "Points must be between 100 and 10000")]
+        public decimal exclusivePrice { get; set; }
+
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual List<SaleDetail> SaleDetails { get; set; }
     }

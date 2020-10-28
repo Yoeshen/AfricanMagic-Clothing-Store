@@ -10,12 +10,28 @@
     <ul id="item-list">
         @foreach (var item in Model.Products)
         {
-            <li>
-                <a href="@Url.Action("Products/Details", new { id = item.ID })">
-                    <img alt="@item.Name" src="@item.ItemPictureUrl" />
-                    <span>@item.Name</span>
-                </a>
-            </li>
+
+            <h2>Mens Clothing</h2>
+            if (item.ProductCategoryId == 1)
+            {
+                <li>
+                    <a href="@Url.Action("Products/Details", new { id = item.ID })">
+                        <img alt="@item.Name" src="@item.ItemPictureUrl" />
+                        <span>@item.Name</span>
+                    </a>
+                </li>
+            }
+            <h2>Womens Clothing</h2>
+            if (item.ProductCategoryId == 2)
+            {
+                <li>
+                    <a href="@Url.Action("Products/Details", new { id = item.ID })">
+                        <img alt="@item.Name" src="@item.ItemPictureUrl" />
+                        <span>@item.Name</span>
+                    </a>
+                </li>
+            }
+
         }
     </ul>
 </div>
