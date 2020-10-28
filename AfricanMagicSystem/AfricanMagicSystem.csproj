@@ -506,6 +506,10 @@
     <Compile Include="Migrations\202010272253309_PointsUpdate.designer.cs">
       <DependentUpon>202010272253309_PointsUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010281045003_UPdatedStorageFinal.cs" />
+    <Compile Include="Migrations\202010281045003_UPdatedStorageFinal.designer.cs">
+      <DependentUpon>202010281045003_UPdatedStorageFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1142,6 +1146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010272253309_PointsUpdate.resx">
       <DependentUpon>202010272253309_PointsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281045003_UPdatedStorageFinal.resx">
+      <DependentUpon>202010281045003_UPdatedStorageFinal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

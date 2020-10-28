@@ -16,6 +16,10 @@ namespace AfricanMagicSystem.Models
 
         public int Quantity { get; set; }
 
+        public string Colour { get; set; }
+
+        public string Size { get; set; }
+
         public virtual BulkOrderImages BulkOrderImages { get; set; }
 
 

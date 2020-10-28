@@ -201,7 +201,7 @@ namespace AfricanMagicSystem.Controllers
                 {
                     db.Storages.Add(crt);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Details");
+                    return RedirectToAction("Index");
                 }
             }
             else
@@ -218,7 +218,7 @@ namespace AfricanMagicSystem.Controllers
                 {
                     db.Storages.Add(crt);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Details");
+                    return RedirectToAction("Index");
                 }
 
             }
