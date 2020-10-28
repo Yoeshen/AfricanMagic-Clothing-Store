@@ -185,6 +185,9 @@ namespace AfricanMagicSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddToQuote(int id)
         {
+
+            var colour = Request.Form["Colour"].ToString();
+            var size = Request.Form["Size"].ToString();
            
             var chckdb = db.Storages.FirstOrDefault();
 
@@ -194,7 +197,9 @@ namespace AfricanMagicSystem.Controllers
                 {
                     StorageID = 1,
                     BulkOrderImagesID = id,
-                    Quantity = 1
+                    Quantity = 1,
+                    Colour = colour,
+                    Size = size
                 };
 
                 if (ModelState.IsValid)
@@ -211,7 +216,9 @@ namespace AfricanMagicSystem.Controllers
                 {
                     StorageID = 1 + check,
                     BulkOrderImagesID = id,
-                    Quantity = 1
+                    Quantity = 1,
+                    Colour = colour,
+                    Size = size
                 };
 
                 if (ModelState.IsValid)
