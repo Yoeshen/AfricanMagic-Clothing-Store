@@ -22,6 +22,10 @@ namespace AfricanMagicSystem.Models
 
         public string Time { get; set; }
 
+        public bool Confirmed { get; set; }
+
+        public string Notes { get; set; }
+
 
     }
 }

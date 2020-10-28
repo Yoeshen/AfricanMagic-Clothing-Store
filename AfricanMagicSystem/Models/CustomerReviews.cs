@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AfricanMagicSystem.Models
 {
+    [Bind(Exclude = "CustomerReviewID")]
     public class CustomerReviews
     {
         [Key]

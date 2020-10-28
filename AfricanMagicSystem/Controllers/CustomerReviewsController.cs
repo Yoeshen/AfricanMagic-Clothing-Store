@@ -8,6 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
+using System.IO;
+using System.Text.RegularExpressions;
+using RestSharp;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -34,11 +37,6 @@ namespace AfricanMagicSystem.Controllers
             {
                 return HttpNotFound();
             }
-
-            ViewBag.ReviewID = id.Value;
-
-            //var comments = 
-
             return View(customerReviews);
         }
 
@@ -50,15 +48,52 @@ namespace AfricanMagicSystem.Controllers
         }
 
         // POST: CustomerReviews/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CustomerReviewID,SaleID,Username,Vote,Flagged,Approved")] CustomerReviews customerReviews)
+        public async Task<ActionResult> Create(CustomerReviews customerReviews)
         {
+            var regex = new Regex(@"\b[\s,\.-:;]*");
+
+            var phrase = customerReviews.Comment;
+
+            var words = regex.Split(phrase).Where(x => !string.IsNullOrEmpty(x));
+
+            int count = 0;
+
+            using (StreamReader reader = new StreamReader(HttpContext.Server.MapPath("~/Photos/swearWords.txt")))
+            {
+                foreach (var x in words)
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string currentLine = reader.ReadLine();
+
+                        if (currentLine == x)
+                        {
+                            count++;
+                        }
+                    }
+                   
+                }
+            } 
+
+            
+
+
+            var rating = Request.Form["Rating"].ToString();
+
+            CustomerReviews flag = new CustomerReviews
+            {
+                SaleID = customerReviews.SaleID,
+                Comment = customerReviews.Comment,
+                Vote = int.Parse(rating),
+                Flagged = true,
+                Username = "Anonymous"
+            };
+
             if (ModelState.IsValid)
             {
-                db.CustomerReview.Add(customerReviews);
+                db.CustomerReview.Add(flag);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -84,11 +119,9 @@ namespace AfricanMagicSystem.Controllers
         }
 
         // POST: CustomerReviews/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CustomerReviewID,SaleID,Username,Vote,Flagged,Approved")] CustomerReviews customerReviews)
+        public async Task<ActionResult> Edit(CustomerReviews customerReviews)
         {
             if (ModelState.IsValid)
             {
@@ -125,8 +158,6 @@ namespace AfricanMagicSystem.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
-
 
         protected override void Dispose(bool disposing)
         {
