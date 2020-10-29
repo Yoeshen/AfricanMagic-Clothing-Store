@@ -56,19 +56,15 @@ namespace AfricanMagicSystem.Models
             return cartItem.Count;
         }
 
-        public bool hasExclusives()
+        public int getTotalPoints()
         {
-            bool bFlag = false;
-            var listProducts = from products in dbContext.Products
-                               join carts in dbContext.Carts
-                               on products.ID equals carts.ProductId
-                               select new { pointsItem = products.isExclusive };
-
-            foreach (var item in listProducts)
-            {
-
-            }
-            return bFlag;
+            int totalInt = 0;
+            decimal? total = (from cartItems in dbContext.Carts
+                              where cartItems.CartId == ShoppingCartId
+                              select (int?)cartItems.Count *
+                              cartItems.Product.exclusivePrice).Sum();
+            totalInt = (Convert.ToInt32(total));
+            return totalInt;
         }
 
         public int RemoveFromCart(int id)

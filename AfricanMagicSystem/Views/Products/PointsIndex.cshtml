@@ -82,14 +82,14 @@
 <!-- product grid of three 4x5 images + heading and price -->
 <div class="product-grid">
 
-    @foreach (var item in Model.Where(x => x.exclusivePrice > 0))
+    @foreach (var item in Model)
     {
         {
             <div class="card">
                 <a href="~/Products/Details/@item.ID"><img src="@Url.Action("RenderImage", new { id = item.ID})" alt="card image" class="card__image"></a>
                 <div class="card__info">
                     <h3 class="card__info--primary"> @Html.DisplayFor(modelItem => item.Name)</h3>
-                    <h3 class="card__info--secondary">R @Html.DisplayFor(modelItem => item.Price)</h3>
+                    <h3 class="card__info--secondary">@Html.DisplayFor(modelItem => item.exclusivePrice) Points</h3>
                 </div>
                 <a href="#" class="AddLink" data-id="@item.ID" data-toggle="modal" data-target="#myModal">Add to cart</a>
                 <!--@Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = item.ID }, new { htmlAttributes = new { @data_toggle = "modal", @data_target = "#myModal" } })--> |

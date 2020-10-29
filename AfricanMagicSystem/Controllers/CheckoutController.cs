@@ -28,7 +28,7 @@ namespace AfricanMagicSystem.Controllers
     {
         ApplicationDbContext dB = new ApplicationDbContext();
         AppConfigurations appConfig = new AppConfigurations();
-       // ProductsController ProductsController = new ProductsController();
+        // ProductsController ProductsController = new ProductsController();
 
         public List<String> CreditCardTypes { get { return appConfig.CreditCardType; } }
 
@@ -55,28 +55,33 @@ namespace AfricanMagicSystem.Controllers
             decimal points = 0;
             int oldPoints = 0;
             int roundPoints = 0;
-            string stringPoints = "";
-            
+
             if (ModelState.IsValid)
-            ViewBag.CreditCardTypes = CreditCardTypes;
+                ViewBag.CreditCardTypes = CreditCardTypes;
             string results = values[9];
 
             var sale = new Sale();
             TryUpdateModel(sale);
             sale.CardNumber = results;
-            var cart = ShoppingCart.GetCart(this.HttpContext);            
+            var cart = ShoppingCart.GetCart(this.HttpContext);
 
 
             int numProducts = 0;
             numProducts = cart.GetCount();
-            if (numProducts >= 5)
+            if (numProducts == 1)
             {
-                deliveryFee = 165;
+                deliveryFee = 60;
+            }
+            else if (numProducts <= 3)
+            {
+                deliveryFee = 80;
             }
             else
             {
                 deliveryFee = 100;
             }
+
+            int pointTotal = cart.getTotalPoints();
 
             try
             {
@@ -84,13 +89,13 @@ namespace AfricanMagicSystem.Controllers
                 sale.Email = User.Identity.Name;
                 sale.SaleDate = DateTime.Now;
                 sale.Total = cart.GetTotal() + deliveryFee;
-                
+
+                //Calculate Points From Cart
                 points = cart.GetTotal();
                 points = points / 10;
                 Math.Round(points);
-                roundPoints = Convert.ToInt32(points);
-                stringPoints = roundPoints.ToString();
-                
+                roundPoints = Convert.ToInt32(points);  //Rounded-up to subtract from current points              
+                //roundPoints is int.
 
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
@@ -98,14 +103,8 @@ namespace AfricanMagicSystem.Controllers
                 var currentUser = manager.FindById(User.Identity.GetUserId());
                 var currentUserId = User.Identity.GetUserId();
 
-                oldPoints = Convert.ToInt32(currentUser.Points);
-                stringPoints = (oldPoints + roundPoints).ToString();
-                currentUser.Points = stringPoints;
-
                 if (sale.SaveUserInfo)
                 {
-
-                   
                     currentUser.Address = sale.Address;
                     currentUser.City = sale.City;
                     currentUser.Country = sale.Country;
@@ -113,14 +112,28 @@ namespace AfricanMagicSystem.Controllers
                     currentUser.Phone = sale.PhoneNumber;
                     currentUser.PostalCode = sale.PostalCode;
                     currentUser.CustomerFirstName = sale.FirstName;
-                    
-
-                    var result = await manager.UpdateAsync(currentUser);                
-
-                    await ctx.SaveChangesAsync();
-
-                    await dB.SaveChangesAsync();
                 }
+
+                oldPoints = Convert.ToInt32(currentUser.Points);
+                //oldPoints is int. Current amount of points the current user owns.
+
+                if (pointTotal > 0 && oldPoints < pointTotal) //Checks if sale has items that use points. If user does not have enough points in his account then redirect to error page.
+                {
+                    return View("Insufficient");
+                }
+                else if (pointTotal > 0 && oldPoints > pointTotal) //Same as above but continues to subtract and update points if all requirements are met.
+                {
+                    int finalPoints = oldPoints - pointTotal;
+                    currentUser.Points = finalPoints.ToString();
+                }
+                else if (pointTotal == 0) // If sale does not have point items, continue to reward user.
+                {
+                    int finalInt = oldPoints + roundPoints;
+                    currentUser.Points = finalInt.ToString();
+                }
+
+                var result = await manager.UpdateAsync(currentUser);
+
 
                 var x = cart.GetCartItems();
                 List<Product> chck = (from q in dB.Products
@@ -134,7 +147,6 @@ namespace AfricanMagicSystem.Controllers
                         {
                             c.Stock -= items.Count;
                         }
-
                     }
                 }
 
@@ -148,8 +160,8 @@ namespace AfricanMagicSystem.Controllers
                 dB.Deliveries.Add(delivery);
                 dB.Sales.Add(sale);
                 await dB.SaveChangesAsync();
-                
-                
+
+
                 List<Product> emailNotif = new List<Product>();
                 String emailBody = "";
                 foreach (var checkStock in chck)
@@ -179,7 +191,7 @@ namespace AfricanMagicSystem.Controllers
                         smtp1.Send(mailcheckStock);
                         //Clean-up.
                         //Close the document.
-                        
+
                         //Dispose of email.
                         mailcheckStock.Dispose();
                     }
@@ -189,7 +201,7 @@ namespace AfricanMagicSystem.Controllers
                 int amount = Convert.ToInt32(amountTotal);
                 string orderId = sale.SaleId.ToString();
                 sale = cart.CreateOrder(sale);
-                
+
 
                 //New Email.
                 //Creates a new PDF document
@@ -249,16 +261,16 @@ namespace AfricanMagicSystem.Controllers
                 invoiceDetails.Columns.Add("Category");
                 invoiceDetails.Columns.Add("Quantity");
                 invoiceDetails.Columns.Add("Price");
-                
+
                 //Add rows to the DataTable
                 foreach (var item in sale.SaleDetails)
                 {
                     invoiceDetails.Rows.Add(new object[] { item.Product.Name, item.Product.ProductCategory.Name, item.Quantity, item.Product.Price });
-                }                
-                
+                }
+
 
                 //Creates text elements to add the address and draw it to the page.
-                
+
 
 
                 //Creates a PDF grid
@@ -297,7 +309,7 @@ namespace AfricanMagicSystem.Controllers
                 //Draws the grid to the PDF page.
                 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, res.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
-                MemoryStream outputStream = new MemoryStream();                
+                MemoryStream outputStream = new MemoryStream();
                 document.Save(outputStream);
                 outputStream.Position = 0;
 
@@ -393,7 +405,7 @@ namespace AfricanMagicSystem.Controllers
                 o => o.SaleId == id &&
                 o.Username == User.Identity.Name);
             if (isValid)
-            {                
+            {
                 return View(id);
             }
             else
@@ -401,7 +413,27 @@ namespace AfricanMagicSystem.Controllers
                 return View("Error");
             }
         }
+
+        //GET: /Checkout/Insufficient
+        public ActionResult Insufficient()
+        {
+            return View("Insufficient");
+        }
+
+        // GET: gotta sort this out using claims
+        public ActionResult ViewPoints()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var ctx = store.Context;
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            var currentUserId = User.Identity.GetUserId();
+            ViewBag.Points = currentUser.Points;
+            return View("ViewPoints");
+        }
     }
 
+ }
+
        
-    }
+   

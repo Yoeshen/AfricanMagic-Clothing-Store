@@ -1117,6 +1117,8 @@
     <Content Include="Views\CustomerReviews\Details.cshtml" />
     <Content Include="Views\CustomerReviews\Edit.cshtml" />
     <Content Include="Views\CustomerReviews\Index.cshtml" />
+    <Content Include="Views\Checkout\ViewPoints.cshtml" />
+    <Content Include="Views\Checkout\Insufficient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
