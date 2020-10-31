@@ -180,6 +180,24 @@ namespace AfricanMagicSystem.Controllers
             return View(bulkOrderImages);
         }
 
+        // POST: BulkOrderImages/ProceedToDetails/5
+        public async Task<ActionResult> GenerateInvoice()
+        {
+            //PDF Code and User Details........
+            //Generate Invoice
+            //Add to sale 
+            //Calculate Total
+            //Add to saledetail
+            return View("InvoiceView");
+        }
+
+        // GET: BulkOrderImages/InvocieView/5
+        public async Task<ActionResult> InvoiceView()
+        {
+            //View the pdf....
+            return View("InvoiceView");
+        }
+
         //AddToBulkORderSale Table
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -1,0 +1,72 @@
+﻿@model AfricanMagicSystem.Models.BulkOrderSales
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BulkOrderSales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BOSaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOSaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalNotes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

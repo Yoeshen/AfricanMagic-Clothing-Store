@@ -1,0 +1,66 @@
+﻿@model AfricanMagicSystem.Models.BulkOrderSales
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BulkOrderSales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BOSaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOSaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalNotes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BOSaleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

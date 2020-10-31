@@ -431,10 +431,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalyticsController.cs" />
     <Compile Include="Controllers\BulkOrderImagesController.cs" />
+    <Compile Include="Controllers\BulkOrderSalesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\CustomerReviewsController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
-    <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -446,6 +446,7 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StoragesController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\SupplierShipController.cs" />
     <Compile Include="Controllers\SupplierShippingsController.cs" />
@@ -1123,6 +1124,19 @@
     <Content Include="Views\CustomerReviews\Details.cshtml" />
     <Content Include="Views\CustomerReviews\Edit.cshtml" />
     <Content Include="Views\CustomerReviews\Index.cshtml" />
+    <Content Include="Views\BulkOrderImages\GenerateInvoice.cshtml" />
+    <Content Include="Views\BulkOrderImages\InvoiceView.cshtml" />
+    <Content Include="Views\Storages\Create.cshtml" />
+    <Content Include="Views\Storages\Delete.cshtml" />
+    <Content Include="Views\Storages\Details.cshtml" />
+    <Content Include="Views\Storages\Edit.cshtml" />
+    <Content Include="Views\Storages\Index.cshtml" />
+    <Content Include="Views\BulkOrderSales\Create.cshtml" />
+    <Content Include="Views\BulkOrderSales\Delete.cshtml" />
+    <Content Include="Views\BulkOrderSales\Details.cshtml" />
+    <Content Include="Views\BulkOrderSales\Edit.cshtml" />
+    <Content Include="Views\BulkOrderSales\Index.cshtml" />
+    <Content Include="Views\BulkOrderSales\SuccessBulk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
