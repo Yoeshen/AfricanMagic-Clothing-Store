@@ -432,6 +432,7 @@
     <Compile Include="Controllers\AnalyticsController.cs" />
     <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CustomerReviewsController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
@@ -1117,6 +1118,11 @@
     <Content Include="Views\Products\PointsIndex.cshtml" />
     <Content Include="Views\Checkout\ViewPoints.cshtml" />
     <Content Include="Views\Checkout\Insufficient.cshtml" />
+    <Content Include="Views\CustomerReviews\Create.cshtml" />
+    <Content Include="Views\CustomerReviews\Delete.cshtml" />
+    <Content Include="Views\CustomerReviews\Details.cshtml" />
+    <Content Include="Views\CustomerReviews\Edit.cshtml" />
+    <Content Include="Views\CustomerReviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
