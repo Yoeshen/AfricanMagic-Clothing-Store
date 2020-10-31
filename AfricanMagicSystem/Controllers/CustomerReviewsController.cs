@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -47,8 +49,57 @@ namespace AfricanMagicSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CustomerReviews customerReviews)
         {
+
+            List<Sale> saleList = (from q in db.Sales
+                                   select q).ToList();
+
+            //var regex = new Regex(@"\b[\s,.-:;]*");
+            var phrase = customerReviews.Comment;
+            //var words = regex.Split(phrase).Where(x => !string.IsNullOrEmpty(x));
+            var punctuation = phrase.Where(Char.IsPunctuation).Distinct().ToArray();
+            var words = phrase.Split().Select(x => x.Trim(punctuation));
+            int count = 0;
+            var rating = int.Parse(Request.Form["Vote"].ToString());
+
+            using (StreamReader reader = new StreamReader(HttpContext.Server.MapPath("~/Photos/swearWords.txt")))
+            {
+                foreach (var x in words)
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string currentLine = reader.ReadLine();
+
+                        if (currentLine == x.ToLower() || currentLine == x.ToUpper())
+                        {
+                            count++;
+                        }
+                    }
+                    reader.DiscardBufferedData();
+                    reader.BaseStream.Seek(0, SeekOrigin.Begin);
+                }
+            }
+
+            if(count > 0)
+            {
+                customerReviews.Flagged = true;
+            }
+            else
+            {
+                customerReviews.Flagged = false;
+            }
+
+            foreach (var item in saleList)
+            {
+                if(customerReviews.InvoiceNumber == item.SaleId)
+                {
+                    customerReviews.InvoiceNumber = item.SaleId;
+                    customerReviews.Username = item.Username;
+                }
+            }
+
             if (ModelState.IsValid)
             {
+                customerReviews.Vote = rating;
                 db.CustomerReview.Add(customerReviews);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

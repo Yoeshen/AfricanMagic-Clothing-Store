@@ -25,12 +25,6 @@ namespace AfricanMagicSystem.Models
         [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please use letters only")]
         public string Comment { get; set; }
 
-        public bool Flagged { get; set; }
-
-        public bool Approved { get; set; }
-
-        public List<Sale> sales { get; set; }
-
-
+        public bool? Flagged { get; set; }
     }
 }

@@ -24,8 +24,5 @@ namespace AfricanMagicSystem.Models
         public string Size { get; set; }
 
         public virtual BulkOrderImages BulkOrderImages { get; set; }
-
-
-
     }
 }

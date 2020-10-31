@@ -26,9 +26,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Flagged)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Approved)
-        </th>
         <th></th>
     </tr>
 
@@ -48,9 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Flagged)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Approved)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CustomerReviewID }) |

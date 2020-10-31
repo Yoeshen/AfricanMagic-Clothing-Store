@@ -532,6 +532,14 @@
     <Compile Include="Migrations\202010291407369_UpdatedCustomerReviewsTable.designer.cs">
       <DependentUpon>202010291407369_UpdatedCustomerReviewsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010312123514_CustomerReviewFinalUpdateAgen.cs" />
+    <Compile Include="Migrations\202010312123514_CustomerReviewFinalUpdateAgen.designer.cs">
+      <DependentUpon>202010312123514_CustomerReviewFinalUpdateAgen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010312136080_updatedAgainCR.cs" />
+    <Compile Include="Migrations\202010312136080_updatedAgainCR.designer.cs">
+      <DependentUpon>202010312136080_updatedAgainCR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1213,6 +1221,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010291407369_UpdatedCustomerReviewsTable.resx">
       <DependentUpon>202010291407369_UpdatedCustomerReviewsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010312123514_CustomerReviewFinalUpdateAgen.resx">
+      <DependentUpon>202010312123514_CustomerReviewFinalUpdateAgen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010312136080_updatedAgainCR.resx">
+      <DependentUpon>202010312136080_updatedAgainCR.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
