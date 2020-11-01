@@ -206,6 +206,7 @@ namespace AfricanMagicSystem.Controllers
 
             var colour = Request.Form["Colour"].ToString();
             var size = Request.Form["Size"].ToString();
+            var quantity = int.Parse(Request.Form["Quantity"].ToString());
            
             var chckdb = db.Storages.FirstOrDefault();
 
@@ -213,9 +214,8 @@ namespace AfricanMagicSystem.Controllers
             {
                 var crt = new Storage
                 {
-                    StorageID = 1,
                     BulkOrderImagesID = id,
-                    Quantity = 1,
+                    Quantity = quantity,
                     Colour = colour,
                     Size = size
                 };
@@ -232,9 +232,8 @@ namespace AfricanMagicSystem.Controllers
                 int check = int.Parse(db.Storages.OrderByDescending(p => p.StorageID).Select(r => r.StorageID).First().ToString());
                 var crt = new Storage
                 {
-                    StorageID = 1 + check,
                     BulkOrderImagesID = id,
-                    Quantity = 1,
+                    Quantity = quantity,
                     Colour = colour,
                     Size = size
                 };

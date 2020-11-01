@@ -72,6 +72,25 @@ namespace AfricanMagicSystem.Controllers
             bulkOrderSales.BOStatus = "Pending";
             bulkOrderSales.Total = Totals;
 
+            
+
+            bulkOrderSales.BulkOrderSaleDetails = new List<BulkOrderSaleDetails>();
+
+            foreach (var detadd in listStorage)
+            {
+
+                var BOsaleDetail = new BulkOrderSaleDetails()
+                {
+                    BOSaleID = bulkOrderSales.BOSaleID,
+                    BOQuantity = detadd.Quantity,
+                    UnitPrice = detadd.BulkOrderImages.price,
+                    BulkOrderImagesID = detadd.BulkOrderImagesID
+                };
+                bulkOrderSales.BulkOrderSaleDetails.Add(BOsaleDetail);
+                db.BulkOrderSaleDetails.Add(BOsaleDetail);
+            }
+
+            db.BulkOrderSales.Add(bulkOrderSales);
 
             PdfDocument document = new PdfDocument();
             //Adds page settings
@@ -203,14 +222,16 @@ namespace AfricanMagicSystem.Controllers
             //Dispose of email.
             mail.Dispose();
 
-            if (ModelState.IsValid) { 
-
-                db.BulkOrderSales.Add(bulkOrderSales);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+            foreach (var deletetbl in listStorage)
+            {
+                db.Storages.Remove(deletetbl);
             }
 
-            return View(bulkOrderSales);
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+           // return View(bulkOrderSales);
         }
 
         // GET: BulkOrderSales/Edit/5
