@@ -175,6 +175,9 @@ namespace AfricanMagicSystem.Controllers
         {
             return View();
         }
+                     
+               
+        
 
         //
         // POST: /Account/Register

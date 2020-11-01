@@ -25,6 +25,7 @@ namespace AfricanMagicSystem.Models
             return GetCart(controller.HttpContext);
         }
 
+
         public int AddToCart(Product product)
         {
             // Get the matching cart and item instances
@@ -62,7 +63,7 @@ namespace AfricanMagicSystem.Models
             decimal? total = (from cartItems in dbContext.Carts
                               where cartItems.CartId == ShoppingCartId
                               select (int?)cartItems.Count *
-                              cartItems.Product.exclusivePrice).Sum();
+                              cartItems.Product.Price).Sum();
             totalInt = (Convert.ToInt32(total));
             return totalInt;
         }

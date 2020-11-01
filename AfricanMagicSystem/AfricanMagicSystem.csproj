@@ -540,6 +540,10 @@
     <Compile Include="Migrations\202010312136080_updatedAgainCR.designer.cs">
       <DependentUpon>202010312136080_updatedAgainCR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011011502192_UpdatedPoints.cs" />
+    <Compile Include="Migrations\202011011502192_UpdatedPoints.designer.cs">
+      <DependentUpon>202011011502192_UpdatedPoints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1124,7 +1128,6 @@
     <Content Include="Views\BulkOrderImages\Edit.cshtml" />
     <Content Include="Views\BulkOrderImages\Index.cshtml" />
     <Content Include="Views\BulkOrderImages\AddToQuote.cshtml" />
-    <Content Include="Views\Products\PointsIndex.cshtml" />
     <Content Include="Views\Checkout\ViewPoints.cshtml" />
     <Content Include="Views\Checkout\Insufficient.cshtml" />
     <Content Include="Views\CustomerReviews\Create.cshtml" />
@@ -1145,6 +1148,7 @@
     <Content Include="Views\BulkOrderSales\Edit.cshtml" />
     <Content Include="Views\BulkOrderSales\Index.cshtml" />
     <Content Include="Views\BulkOrderSales\SuccessBulk.cshtml" />
+    <Content Include="Views\ShoppingCart\PointSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1227,6 +1231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010312136080_updatedAgainCR.resx">
       <DependentUpon>202010312136080_updatedAgainCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011011502192_UpdatedPoints.resx">
+      <DependentUpon>202011011502192_UpdatedPoints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -418,19 +418,7 @@ namespace AfricanMagicSystem.Controllers
         public ActionResult Insufficient()
         {
             return View("Insufficient");
-        }
-
-        // GET: gotta sort this out using claims
-        public ActionResult ViewPoints()
-        {
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
-            var ctx = store.Context;
-            var currentUser = manager.FindById(User.Identity.GetUserId());
-            var currentUserId = User.Identity.GetUserId();
-            ViewBag.Points = currentUser.Points;
-            return View("ViewPoints");
-        }
+        }        
     }
 
  }

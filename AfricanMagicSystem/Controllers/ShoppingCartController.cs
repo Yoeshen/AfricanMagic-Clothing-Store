@@ -1,5 +1,7 @@
 ﻿using AfricanMagicSystem.Models;
 using AfricanMagicSystem.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,6 +96,17 @@ namespace AfricanMagicSystem.Controllers
 
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
+        }
+
+        // GET: /ShoppingCart/CartSummary
+        [ChildActionOnly]
+        public ActionResult PointsSummary()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            int Points = Convert.ToInt32(currentUser.Points);
+            ViewData["PointSummary"] = Points;
+            return PartialView("PointSummary");
         }
     }
 }

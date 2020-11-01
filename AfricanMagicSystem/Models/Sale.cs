@@ -85,52 +85,7 @@ namespace AfricanMagicSystem.Models
 
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
-        public List<SaleDetail> SaleDetails { get; set; }
-
-
-
-        public string ToString(Sale sale)
-        {
-            StringBuilder bob = new StringBuilder();
-
-            bob.Append("<p>Order Information for Order: " + sale.SaleId + "<br>Placed at: " + sale.SaleDate + "</p>").AppendLine();
-            bob.Append("<p>Name: " + sale.FirstName + " " + sale.LastName + "<br>");
-            bob.Append("Address: " + sale.Address + " " + sale.City + " " + sale.State + " " + sale.PostalCode + "<br>");
-            bob.Append("Contact: " + sale.Email + "     " + sale.PhoneNumber + "</p>");
-            bob.Append("<p>Charge: " + sale.CardNumber + " " + sale.ExpiryDate.ToString("dd-MM-yyyy") + "</p>");
-            bob.Append("<p>Credit Card Type: " + sale.CardType + "</p>");
-
-            bob.Append("<br>").AppendLine();
-            bob.Append("<Table>").AppendLine();
-            // Display header 
-            string header = "<tr> <th>Item Name</th>" + "<th>Quantity</th>" + "<th>Price</th> <th></th> </tr>";
-            bob.Append(header).AppendLine();
-
-            String output = String.Empty;
-            try
-            {
-                foreach (var item in sale.SaleDetails)
-                {
-                    bob.Append("<tr>");
-                    output = "<td>" + item.Product.Name + "</td>" + "<td>" + item.Quantity + "</td>" + "<td>" + item.Quantity * item.UnitPrice + "</td>";
-                    bob.Append(output).AppendLine();
-                    Console.WriteLine(output);
-                    bob.Append("</tr>");
-                }
-            }
-            catch (Exception ex)
-            {
-                output = "No items ordered.";
-            }
-            bob.Append("</Table>");
-            bob.Append("<b>");
-            // Display footer 
-            string footer = String.Format("{0,-12}{1,12}\n",
-                                          "Total", sale.Total);
-            bob.Append(footer).AppendLine();
-            bob.Append("</b>");
-
-            return bob.ToString();
-        }
+        public List<SaleDetail> SaleDetails { get; set; }       
+       
     }
 }
