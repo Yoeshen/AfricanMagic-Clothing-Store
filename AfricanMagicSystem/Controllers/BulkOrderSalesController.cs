@@ -65,7 +65,7 @@ namespace AfricanMagicSystem.Controllers
             decimal Totals = 0;
             foreach (var item in listStorage)
             {
-                Totals += item.BulkOrderImages.price;
+                Totals += (item.BulkOrderImages.price * item.Quantity);
             }
 
             bulkOrderSales.BOSaleDate = DateTime.Now.Date;
