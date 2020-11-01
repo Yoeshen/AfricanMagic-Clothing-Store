@@ -54,5 +54,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerReviewID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Verify", "Verify",new { id=Model.CustomerReviewID})
 </p>

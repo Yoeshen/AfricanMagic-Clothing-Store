@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AfricanMagicSystem.Models.BulkOrderSales>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BOSaleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalNotes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOSaleDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalNotes)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.BOSaleID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br/>
+
+@using (Html.BeginForm("Payment", "BulkOrderSales"))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" value="Value"/>
+    <input type="submit" value="Enter SaleID to Pay"/>
+
+}
+

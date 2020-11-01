@@ -163,6 +163,22 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Verify(int id)
+        {
+            List<CustomerReviews> customerReviews = (from q in db.CustomerReview
+                                                     select q).ToList();
+
+            foreach (var item in customerReviews)
+            {
+                if(item.CustomerReviewID == id)
+                {
+                    item.Flagged = true;
+                }
+            }
+
+            return View("Verified");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

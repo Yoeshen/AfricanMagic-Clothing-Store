@@ -19,7 +19,7 @@
                             <li>@Html.ActionLink("Support", "Index", "ReturnItems")</li>
                             <li>@Html.ActionLink("Supplier", "Index", "SupplierShippings")</li>
                             <li>@Html.ActionLink("Bulk System", "Index", "BulkOrderImages")</li>
-                            <li>@Html.ActionLink("Comments", "Create", "CustomerReviews")</li>
+                            <li>@Html.ActionLink("Comments", "Index", "CustomerReviews")</li>
                             <li>@Html.ActionLink("Pending Bulk Orders", "Index", "BulkOrderSales")</li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Roles Admin</li>
@@ -46,6 +46,7 @@
                 else
                 {
                     <li>@Html.ActionLink("Products", "Index", "BulkOrderImages")</li>
+                    <li>@Html.ActionLink("View Orders", "CustomerIndex","BulkOrderSales")</li>
                 }
 
 

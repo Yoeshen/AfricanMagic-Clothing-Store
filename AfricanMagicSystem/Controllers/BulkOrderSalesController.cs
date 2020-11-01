@@ -28,6 +28,11 @@ namespace AfricanMagicSystem.Controllers
             return View(await db.BulkOrderSales.ToListAsync());
         }
 
+        public async Task<ActionResult> CustomerIndex()
+        {
+            return View(await db.BulkOrderSales.ToListAsync());
+        }
+
         // GET: BulkOrderSales/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -296,30 +301,27 @@ namespace AfricanMagicSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult VerifyStock(int id)
+        public ActionResult VerifyStock(string value)
         {
-            List<BulkOrderSaleDetails> checker = (from q in db.BulkOrderSaleDetails
+            List<BulkOrderSales> checker = (from q in db.BulkOrderSales
                                             select q).ToList();
-
-            List<String> StockQuantity = new List<string>();
-            List<String> StockName = new List<string>();
 
             foreach (var item in checker)
             {
-                if(id == item.BOSaleID)
+                if(item.BOSaleID == int.Parse(value))
                 {
-                    StockQuantity.Add((item.BulkOrderImages.Stock).ToString());
-                    StockName.Add(item.BulkOrderImages.Name);
+                    item.BOStatus = "Verified";
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
                 }
             }
 
-            ViewBag.StockName = StockName;
-            ViewBag.StockQuantity = StockQuantity;
-
-            return View();
+            return View("Updated");
         }
 
-        public async Task<ActionResult> VerifyStock(int? id)
+        
+
+        /*public async Task<ActionResult> VerifyStock(int? id)
         {
             if (id == null)
             {
@@ -331,12 +333,32 @@ namespace AfricanMagicSystem.Controllers
 
             bulkOrderSales.BulkOrderSaleDetails = orderDetails.ToList();
 
+            List<BulkOrderSaleDetails> checker = (from q in db.BulkOrderSaleDetails
+                                                  select q).ToList();
+
+            List<String> StockQuantity = new List<string>();
+            List<String> StockName = new List<string>();
+
+            foreach (var item in checker)
+            {
+                if (id == item.BOSaleID)
+                {
+                    StockQuantity.Add((item.BulkOrderImages.Stock).ToString());
+                    StockName.Add(item.BulkOrderImages.Name);
+                }
+            }
+
+            ViewBag.StockName = StockName;
+            ViewBag.StockQuantity = StockQuantity;
+
+            return View();
+
             if (bulkOrderSales == null)
             {
                 return HttpNotFound();
             }
             return View(bulkOrderSales);
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {

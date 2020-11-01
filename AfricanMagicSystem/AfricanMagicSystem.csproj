@@ -1149,7 +1149,9 @@
     <Content Include="Views\BulkOrderSales\Index.cshtml" />
     <Content Include="Views\BulkOrderSales\SuccessBulk.cshtml" />
     <Content Include="Views\ShoppingCart\PointSummary.cshtml" />
-    <Content Include="Views\BulkOrderSales\VerifyStock.cshtml" />
+    <Content Include="Views\CustomerReviews\Verified.cshtml" />
+    <Content Include="Views\BulkOrderSales\Updated.cshtml" />
+    <Content Include="Views\BulkOrderSales\CustomerIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
