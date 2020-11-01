@@ -9,7 +9,7 @@
 <ul>
     @foreach (var item in (List<string>)ViewBag.StockName)
     {
-        @foreach (var check in (List<string>)ViewBag.StockQuantity)
+        foreach (var check in (List<string>)ViewBag.StockQuantity)
         {
             <li>
                 @item : @check
