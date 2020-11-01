@@ -1,0 +1,54 @@
+﻿@model AfricanMagicSystem.Models.BulkOrderSales 
+@{
+    ViewBag.Title = "VerifyStock";
+}
+
+<h2>Stock Quantity for this order in inventory</h2>
+
+<br />
+<ul>
+    @foreach (var item in (List<string>)ViewBag.StockName)
+    {
+        @foreach (var check in (List<string>)ViewBag.StockQuantity)
+        {
+            <li>
+                @item : @check
+            </li>
+        }
+    }
+</ul>
+<br />
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Quantity
+        </th>
+    </tr>
+    @foreach (var item in Model.BulkOrderSaleDetails)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BulkOrderImages.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOQuantity)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+
+@using (Html.BeginForm("Verfiy", "BulkOrderSales"))
+{
+    @Html.AntiForgeryToken();
+    <label>Click to Verfiy</label>
+    <input type="submit" />
+}
+

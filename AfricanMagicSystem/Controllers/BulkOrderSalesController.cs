@@ -36,6 +36,11 @@ namespace AfricanMagicSystem.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             BulkOrderSales bulkOrderSales = await db.BulkOrderSales.FindAsync(id);
+
+            var orderDetails = db.BulkOrderSaleDetails.Where(x => x.BOSaleID == bulkOrderSales.BOSaleID);
+
+            bulkOrderSales.BulkOrderSaleDetails = orderDetails.ToList();
+
             if (bulkOrderSales == null)
             {
                 return HttpNotFound();
@@ -229,7 +234,7 @@ namespace AfricanMagicSystem.Controllers
 
             await db.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("SuccessBulk");
 
            // return View(bulkOrderSales);
         }
@@ -287,6 +292,50 @@ namespace AfricanMagicSystem.Controllers
             db.BulkOrderSales.Remove(bulkOrderSales);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult VerifyStock(int id)
+        {
+            List<BulkOrderSaleDetails> checker = (from q in db.BulkOrderSaleDetails
+                                            select q).ToList();
+
+            List<String> StockQuantity = new List<string>();
+            List<String> StockName = new List<string>();
+
+            foreach (var item in checker)
+            {
+                if(id == item.BOSaleID)
+                {
+                    StockQuantity.Add((item.BulkOrderImages.Stock).ToString());
+                    StockName.Add(item.BulkOrderImages.Name);
+                }
+            }
+
+            ViewBag.StockName = StockName;
+            ViewBag.StockQuantity = StockQuantity;
+
+            return View();
+        }
+
+        public async Task<ActionResult> VerifyStock(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BulkOrderSales bulkOrderSales = await db.BulkOrderSales.FindAsync(id);
+
+            var orderDetails = db.BulkOrderSaleDetails.Where(x => x.BOSaleID == bulkOrderSales.BOSaleID);
+
+            bulkOrderSales.BulkOrderSaleDetails = orderDetails.ToList();
+
+            if (bulkOrderSales == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bulkOrderSales);
         }
 
         protected override void Dispose(bool disposing)
