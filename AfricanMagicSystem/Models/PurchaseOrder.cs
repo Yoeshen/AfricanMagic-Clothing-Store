@@ -13,7 +13,7 @@ namespace AfricanMagicSystem.Models
         [Key]
         public int PurchaseOrderID { get; set; }
 
-        public int ProductNeeded{ get; set; }
+        public string ProductNeeded{ get; set; }
 
         public List<Product> Products  { get; set; }
     }

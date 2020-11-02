@@ -549,6 +549,10 @@
     <Compile Include="Migrations\202011020104041_PurchaseOrder.designer.cs">
       <DependentUpon>202011020104041_PurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011020119535_UpdatedPurchaseOrders.cs" />
+    <Compile Include="Migrations\202011020119535_UpdatedPurchaseOrders.designer.cs">
+      <DependentUpon>202011020119535_UpdatedPurchaseOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1252,6 +1256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011020104041_PurchaseOrder.resx">
       <DependentUpon>202011020104041_PurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011020119535_UpdatedPurchaseOrders.resx">
+      <DependentUpon>202011020119535_UpdatedPurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
