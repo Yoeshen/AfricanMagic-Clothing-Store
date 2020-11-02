@@ -108,6 +108,17 @@
     <input type="submit" value="Enter Sale ID to Verify" />
 }
 
+<br />
+
+@using (Html.BeginForm("RejectStock", "BulkOrderSales"))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" name="Value" />
+    <input type="submit" value="Enter SaleID to Reject" />
+}
+
+<br />
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BOSaleID }) |
     @Html.ActionLink("Back to List", "Index")

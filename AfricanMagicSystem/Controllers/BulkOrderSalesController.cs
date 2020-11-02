@@ -45,6 +45,7 @@ namespace AfricanMagicSystem.Controllers
             {
                 if (item.BOSaleID == int.Parse(value))
                 {
+
                     var deposit = decimal.Multiply(item.Total, 0.40m);
 
                     deposit -= item.Total;
@@ -363,10 +364,14 @@ namespace AfricanMagicSystem.Controllers
             List<BulkOrderSales> checker = (from q in db.BulkOrderSales
                                             select q).ToList();
 
+            List<BulkOrderSaleDetails> stockchecker = (from q in db.BulkOrderSaleDetails
+                                                select q).ToList();
+
             foreach (var item in checker)
             {
-                if(item.BOSaleID == int.Parse(value))
+                if (item.BOSaleID == int.Parse(value))
                 {
+
                     item.BOStatus = "Verified";
                     db.Entry(item).State = EntityState.Modified;
                     db.SaveChanges();
@@ -376,6 +381,23 @@ namespace AfricanMagicSystem.Controllers
             return View("Updated");
         }
 
+        public ActionResult RejectStock(string value)
+        {
+            List<BulkOrderSales> checker = (from q in db.BulkOrderSales
+                                            select q).ToList();
+
+            foreach (var item in checker)
+            {
+                if (item.BOSaleID == int.Parse(value))
+                {
+                    item.BOStatus = "Rejected";
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            return View("Updated");
+        }
         
 
         /*public async Task<ActionResult> VerifyStock(int? id)
