@@ -8,3 +8,14 @@
 <h3>
     @ViewBag.NewPoints
 </h3>
+
+<br />
+
+@using (Html.BeginForm("PayDelivery", "Checkout"))
+{
+    @Html.AntiForgeryToken();
+
+    <input type="submit" value="Click to pay for delivery"/>
+
+
+}

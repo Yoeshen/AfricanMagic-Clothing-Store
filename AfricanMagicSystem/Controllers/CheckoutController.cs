@@ -485,7 +485,47 @@ namespace AfricanMagicSystem.Controllers
             return View("PointsCheckout");
 
         }
+
+        public ActionResult PayDelivery()
+        {
+
+            int delivery = 100;
+            string name = "AfricanMagic Order";
+            string description = "This is a delivery payment";
+
+            string site = "https://sandbox.payfast.co.za/eng/process";
+            string merchant_id = "";
+            string merchant_key = "";
+
+            string paymentMode = System.Configuration.ConfigurationManager.AppSettings["PaymentMode"];
+
+            if (paymentMode == "test")
+            {
+                site = "https://sandbox.payfast.co.za/eng/process?";
+                merchant_id = "10000100";
+                merchant_key = "46f0cd694581a";
+            }
+
+            // Build the query string for payment site
+
+            StringBuilder str = new StringBuilder();
+            str.Append("merchant_id=" + HttpUtility.UrlEncode(merchant_id));
+            str.Append("&merchant_key=" + HttpUtility.UrlEncode(merchant_key));
+            str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
+            str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
+            str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
+
+           
+            str.Append("&amount=" + HttpUtility.UrlEncode(delivery.ToString()));
+            str.Append("&item_name=" + HttpUtility.UrlEncode(name));
+            str.Append("&item_description=" + HttpUtility.UrlEncode(description));
+
+            // Redirect to PayFast
+            return Redirect(site + str.ToString());
+        }
+
     }
+
 
  }
 

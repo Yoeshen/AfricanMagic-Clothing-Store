@@ -121,7 +121,7 @@ namespace AfricanMagicSystem.Controllers
             {
                 if(item.Stock <= 40)
                 {
-                    tmp = item.ID +  ","; 
+                    tmp = item.Name +  ","; 
                 }
             }
 
@@ -137,6 +137,19 @@ namespace AfricanMagicSystem.Controllers
 
         public ActionResult ViewLowStock()
         {
+
+            List<Product> products = (from q in db.Products
+                                      select q).ToList();
+            string tmp = "";
+            foreach (var item in products)
+            {
+                if (item.Stock <= 40)
+                {
+                    tmp = item.Name + ",";
+                }
+            }
+
+            ViewBag.Low = tmp;
             return View();
         }
         protected override void Dispose(bool disposing)

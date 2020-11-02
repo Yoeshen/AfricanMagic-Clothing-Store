@@ -23,6 +23,11 @@ namespace AfricanMagicSystem.Controllers
             return View(await db.CustomerReview.ToListAsync());
         }
 
+        public async Task<ActionResult> CustomerIndex()
+        {
+            return View(await db.CustomerReview.ToListAsync());
+        }
+
         // GET: CustomerReviews/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -88,21 +93,35 @@ namespace AfricanMagicSystem.Controllers
                 customerReviews.Flagged = false;
             }
 
-            foreach (var item in saleList)
-            {
-                if(customerReviews.InvoiceNumber == item.SaleId)
-                {
-                    customerReviews.InvoiceNumber = item.SaleId;
-                    customerReviews.Username = item.Username;
-                }
-            }
-
             if (ModelState.IsValid)
             {
-                customerReviews.Vote = rating;
-                db.CustomerReview.Add(customerReviews);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                foreach (var item in saleList)
+                {
+                    if (customerReviews.InvoiceNumber == item.SaleId)
+                    {
+                        if(count > 0)
+                        {
+                            customerReviews.InvoiceNumber = item.SaleId;
+                            customerReviews.Username = item.Username;
+                            customerReviews.Vote = rating;
+                            db.CustomerReview.Add(customerReviews);
+                            await db.SaveChangesAsync();
+                            return RedirectToAction("Flagged");
+                        }
+                        else
+                        {
+                            customerReviews.InvoiceNumber = item.SaleId;
+                            customerReviews.Username = item.Username;
+                            customerReviews.Vote = rating;
+                            db.CustomerReview.Add(customerReviews);
+                            await db.SaveChangesAsync();
+                            return RedirectToAction("ThankYou");
+                        }
+                        
+                    }
+                }
+
+               
             }
 
             return View(customerReviews);
@@ -177,6 +196,16 @@ namespace AfricanMagicSystem.Controllers
             }
 
             return View("Verified");
+        }
+
+        public ActionResult Flagged()
+        {
+            return View();
+        }
+
+        public ActionResult ThankYou()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

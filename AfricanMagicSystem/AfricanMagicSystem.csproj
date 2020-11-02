@@ -1170,6 +1170,9 @@
     <Content Include="Views\PurchaseOrders\Index.cshtml" />
     <Content Include="Views\PurchaseOrders\ViewLowStock.cshtml" />
     <Content Include="Views\PurchaseOrders\Success.cshtml" />
+    <Content Include="Views\CustomerReviews\Flagged.cshtml" />
+    <Content Include="Views\CustomerReviews\ThankYou.cshtml" />
+    <Content Include="Views\CustomerReviews\CustomerIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
