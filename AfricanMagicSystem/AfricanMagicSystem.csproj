@@ -664,6 +664,7 @@
     <Content Include="Content\bootstrap-datepicker3.css.map" />
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
+    <None Include="Properties\PublishProfiles\2020GRP32 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AfricanMagicStore - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AfricanMagicSystem - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AfricanMagicSystem20200723142710 - Web Deploy.pubxml" />

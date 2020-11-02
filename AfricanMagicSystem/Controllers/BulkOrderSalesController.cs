@@ -46,9 +46,9 @@ namespace AfricanMagicSystem.Controllers
                 if (item.BOSaleID == int.Parse(value))
                 {
 
-                    var deposit = decimal.Multiply(item.Total, 0.40m);
+                    var deposit = item.Total;
 
-                    deposit -= item.Total;
+                    //deposit -= item.Total;
 
                     item.BOStatus = "Paid";
                     db.Entry(item).State = EntityState.Modified;
@@ -265,7 +265,7 @@ namespace AfricanMagicSystem.Controllers
             string docname = "BulkOrderInvoice.pdf";
             invoicePdf.ContentDisposition.FileName = docname;
 
-            MailMessage mail = new MailMessage();
+            /*MailMessage mail = new MailMessage();
             string emailTo = "africanmagicsystem@gmail.com";
             MailAddress from = new MailAddress("africanmagicsystem@gmail.com");
             mail.From = from;
@@ -288,7 +288,7 @@ namespace AfricanMagicSystem.Controllers
             //Close the document.
             document.Close(true);
             //Dispose of email.
-            mail.Dispose();
+            mail.Dispose();*/
 
             foreach (var deletetbl in listStorage)
             {
