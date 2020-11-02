@@ -9,6 +9,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.BOSaleID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.BOSaleDate)
         </th>
         <th>
@@ -32,6 +35,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOSaleID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BOSaleDate)
             </td>
@@ -62,8 +68,10 @@
 @using (Html.BeginForm("Payment", "BulkOrderSales"))
 {
     @Html.AntiForgeryToken();
-    <input type="text" value="Value"/>
+    <input type="text" name="Value"/>
     <input type="submit" value="Enter SaleID to Pay"/>
 
 }
+
+
 
