@@ -112,6 +112,33 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<ActionResult> GenerateLow()
+        {
+            List<Product> products = (from q in db.Products
+                                      select q).ToList();
+            string tmp = "";
+            foreach (var item in products)
+            {
+                if(item.Stock <= 40)
+                {
+                    tmp = item.ID +  ","; 
+                }
+            }
+
+            PurchaseOrder purchaseOrder = new PurchaseOrder
+            {
+                ProductNeeded = tmp
+            };
+
+            db.PurchaseOrders.Add(purchaseOrder);
+            await db.SaveChangesAsync();
+            return View("Success");
+        }
+
+        public ActionResult ViewLowStock()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ViewLowStock";
+}
+
+<h2>ViewLowStock</h2>
+
+@using (Html.BeginForm("GenerateLow", "PurchaseOrders"))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" name="Value"/>
+    <input type="submit" value="Click to Generate"/>
+
+}
