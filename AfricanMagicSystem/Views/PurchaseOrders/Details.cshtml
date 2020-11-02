@@ -1,0 +1,26 @@
+﻿@model AfricanMagicSystem.Models.PurchaseOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PurchaseOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductNeeded)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PurchaseOrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

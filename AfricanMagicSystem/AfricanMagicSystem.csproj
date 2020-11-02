@@ -442,6 +442,7 @@
     <Compile Include="Controllers\ProductCategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\ReturnItemsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
@@ -544,6 +545,10 @@
     <Compile Include="Migrations\202011011502192_UpdatedPoints.designer.cs">
       <DependentUpon>202011011502192_UpdatedPoints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011020104041_PurchaseOrder.cs" />
+    <Compile Include="Migrations\202011020104041_PurchaseOrder.designer.cs">
+      <DependentUpon>202011020104041_PurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -558,6 +563,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\ReturnItem.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
@@ -1152,6 +1158,12 @@
     <Content Include="Views\CustomerReviews\Verified.cshtml" />
     <Content Include="Views\BulkOrderSales\Updated.cshtml" />
     <Content Include="Views\BulkOrderSales\CustomerIndex.cshtml" />
+    <Content Include="Views\Checkout\PointsCheckout.cshtml" />
+    <Content Include="Views\PurchaseOrders\Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrders\Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1237,6 +1249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011011502192_UpdatedPoints.resx">
       <DependentUpon>202011011502192_UpdatedPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011020104041_PurchaseOrder.resx">
+      <DependentUpon>202011020104041_PurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -418,7 +418,73 @@ namespace AfricanMagicSystem.Controllers
         public ActionResult Insufficient()
         {
             return View("Insufficient");
-        }        
+        }
+        
+        public async Task<ActionResult> PointsCheckout()
+        {
+            decimal points = 0;
+            int oldPoints = 0;
+            int roundPoints = 0;
+            decimal deliveryFee = 0;
+
+            int numProducts = 0;
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            numProducts = cart.GetCount();
+            if (numProducts == 1)
+            {
+                deliveryFee = 60;
+            }
+            else if (numProducts <= 3)
+            {
+                deliveryFee = 80;
+            }
+            else
+            {
+                deliveryFee = 100;
+            }
+
+            int pointTotal = cart.getTotalPoints();
+
+            //Calculate Points From Cart
+            points = cart.GetTotal();
+            points = points / 10;
+            Math.Round(points);
+            roundPoints = Convert.ToInt32(points);  //Rounded-up to subtract from current points              
+                                                    //roundPoints is int.
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var ctx = store.Context;
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            var currentUserId = User.Identity.GetUserId();
+
+            oldPoints = Convert.ToInt32(currentUser.Points);
+            //oldPoints is int. Current amount of points the current user owns.
+
+            if (pointTotal > 0 && oldPoints < pointTotal) //Checks if sale has items that use points. If user does not have enough points in his account then redirect to error page.
+            {
+                return View("Insufficient");
+            }
+            else if (pointTotal > 0 && oldPoints > pointTotal) //Same as above but continues to subtract and update points if all requirements are met.
+            {
+                int finalPoints = oldPoints - pointTotal;
+                currentUser.Points = finalPoints.ToString();
+            }
+            else if (pointTotal == 0) // If sale does not have point items, continue to reward user.
+            {
+                int finalInt = oldPoints + roundPoints;
+                currentUser.Points = finalInt.ToString();
+            }
+
+            
+
+            var result = await manager.UpdateAsync(currentUser);
+
+            ViewBag.NewPoints = oldPoints + " --> " + currentUser.Points;
+
+            return View("PointsCheckout");
+
+        }
     }
 
  }
