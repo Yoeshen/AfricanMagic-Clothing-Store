@@ -50,6 +50,11 @@
                     <li>@Html.ActionLink("View Orders", "CustomerIndex","BulkOrderSales")</li>
                 }
 
+                @if(Request.IsAuthenticated && User.IsInRole("Supplier"))
+                {
+                    <li>@Html.ActionLink("Order Status", "Index", "SupplierShippings")</li>
+                }
+
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us <b class="caret"></b></a>
