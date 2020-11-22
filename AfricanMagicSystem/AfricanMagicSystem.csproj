@@ -553,6 +553,10 @@
     <Compile Include="Migrations\202011020119535_UpdatedPurchaseOrders.designer.cs">
       <DependentUpon>202011020119535_UpdatedPurchaseOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011221120116_Supplier.cs" />
+    <Compile Include="Migrations\202011221120116_Supplier.designer.cs">
+      <DependentUpon>202011221120116_Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -573,6 +577,7 @@
     <Compile Include="Models\SaleDetail.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Storage.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\SupplierShipping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -1265,6 +1270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011020119535_UpdatedPurchaseOrders.resx">
       <DependentUpon>202011020119535_UpdatedPurchaseOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011221120116_Supplier.resx">
+      <DependentUpon>202011221120116_Supplier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
