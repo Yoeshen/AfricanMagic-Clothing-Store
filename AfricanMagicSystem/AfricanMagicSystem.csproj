@@ -557,6 +557,10 @@
     <Compile Include="Migrations\202011221120116_Supplier.designer.cs">
       <DependentUpon>202011221120116_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011241137169_CustomDesigns.cs" />
+    <Compile Include="Migrations\202011241137169_CustomDesigns.designer.cs">
+      <DependentUpon>202011241137169_CustomDesigns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -565,6 +569,7 @@
     <Compile Include="Models\BulkOrderSaleDetails.cs" />
     <Compile Include="Models\BulkOrderSales.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CustomDesign.cs" />
     <Compile Include="Models\CustomerReviews.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1273,6 +1278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011221120116_Supplier.resx">
       <DependentUpon>202011221120116_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241137169_CustomDesigns.resx">
+      <DependentUpon>202011241137169_CustomDesigns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
