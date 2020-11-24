@@ -433,6 +433,7 @@
     <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\BulkOrderSalesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CustomDesignsController.cs" />
     <Compile Include="Controllers\CustomerReviewsController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
@@ -1184,6 +1185,11 @@
     <Content Include="Views\CustomerReviews\Flagged.cshtml" />
     <Content Include="Views\CustomerReviews\ThankYou.cshtml" />
     <Content Include="Views\CustomerReviews\CustomerIndex.cshtml" />
+    <Content Include="Views\CustomDesigns\Create.cshtml" />
+    <Content Include="Views\CustomDesigns\Delete.cshtml" />
+    <Content Include="Views\CustomDesigns\Details.cshtml" />
+    <Content Include="Views\CustomDesigns\Edit.cshtml" />
+    <Content Include="Views\CustomDesigns\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
