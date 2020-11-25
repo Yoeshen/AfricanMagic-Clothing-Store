@@ -21,6 +21,11 @@ namespace AfricanMagicSystem.Controllers
             return View(await db.CustomDesigns.ToListAsync());
         }
 
+        public ActionResult MakeCustom()
+        {
+            return View();
+        }
+
         // GET: CustomDesigns/Details/5
         public async Task<ActionResult> Details(int? id)
         {

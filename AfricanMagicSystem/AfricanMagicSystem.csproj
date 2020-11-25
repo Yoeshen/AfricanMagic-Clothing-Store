@@ -1190,6 +1190,7 @@
     <Content Include="Views\CustomDesigns\Details.cshtml" />
     <Content Include="Views\CustomDesigns\Edit.cshtml" />
     <Content Include="Views\CustomDesigns\Index.cshtml" />
+    <Content Include="Views\CustomDesigns\MakeCustom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
