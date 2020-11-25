@@ -25,7 +25,5 @@ namespace AfricanMagicSystem.Models
         public bool Confirmed { get; set; }
 
         public string Notes { get; set; }
-
-
     }
 }
