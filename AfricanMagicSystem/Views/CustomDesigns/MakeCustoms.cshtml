@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "MakeCustom";
+}
+
+<h2>MakeCustom</h2>
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Make Your Design</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Choose Size", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Size", new List<SelectListItem>
+           {
+               new SelectListItem{Text = "Small", Value="Small"},
+               new SelectListItem{Text = "Medium", Value="Medium"},
+               new SelectListItem{Text = "Large", Value="Large"}
+           })
+                @Html.ValidationMessage("Please Select a Size", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Choose Colour", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Colour", new List<SelectListItem>
+           {
+               new SelectListItem{Text = "Black", Value="Black"},
+               new SelectListItem{Text = "White", Value="White"},
+               new SelectListItem{Text = "Grey", Value="Grey"}
+           })
+                @Html.ValidationMessage("Please Select a colour", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Choose a Font Type", htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <ul style="list-style-type:none;">
+                    <li style="font-family:'Times New Roman', Times, serif">@Html.RadioButton("Check","1")</li>
+                    <li style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@Html.RadioButton("check2","2")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
