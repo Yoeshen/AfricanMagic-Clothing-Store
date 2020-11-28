@@ -9,6 +9,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ShippingID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Subject)
         </th>
         <th>
@@ -26,25 +29,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Confirmed)
-        </td>
-        
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        if (item.Confirmed == true)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Confirmed)
+                </td>
+
+            </tr>
+        }
+    }
 
 </table>
+<br/>
+
+@using (Html.BeginForm("ReceiveStock", "SupplierShippings"))
+{
+    @Html.AntiForgeryToken();
+    <input type="text" name="Value"/>
+    <input type="submit" value="Enter ShippingID to log stock."/>
+}
+

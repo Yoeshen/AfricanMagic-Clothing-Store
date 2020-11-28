@@ -52,6 +52,7 @@ namespace AfricanMagicSystem.Models
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<CustomDesign> CustomDesigns { get; set; }
         public DbSet<CustomDesignSales> CustomDesignSales { get; set; }
+        public DbSet<StockReceived> StockReceived { get; set; }
 
 
 

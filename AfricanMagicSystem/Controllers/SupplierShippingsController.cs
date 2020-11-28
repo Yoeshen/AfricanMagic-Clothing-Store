@@ -112,6 +112,24 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ReceiveStock(string Value)
+        {
+            List<SupplierShipping> check = (from q in db.supplierShippings
+                                            select q).ToList();
+
+            foreach (var item in check)
+            {
+                if(item.ShippingID == int.Parse(Value))
+                {
+                    ViewBag.Message = item.Notes;
+                }
+            }
+
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
