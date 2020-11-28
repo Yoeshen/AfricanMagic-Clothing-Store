@@ -448,6 +448,7 @@
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StockReceivedsController.cs" />
     <Compile Include="Controllers\StoragesController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\SupplierShipController.cs" />
@@ -1201,6 +1202,12 @@
     <Content Include="Views\CustomDesigns\Edit.cshtml" />
     <Content Include="Views\CustomDesigns\Index.cshtml" />
     <Content Include="Views\CustomDesigns\MakeCustom.cshtml" />
+    <Content Include="Views\StockReceiveds\Create.cshtml" />
+    <Content Include="Views\StockReceiveds\Delete.cshtml" />
+    <Content Include="Views\StockReceiveds\Details.cshtml" />
+    <Content Include="Views\StockReceiveds\Edit.cshtml" />
+    <Content Include="Views\StockReceiveds\Index.cshtml" />
+    <Content Include="Views\SupplierShippings\ReceiveStock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
