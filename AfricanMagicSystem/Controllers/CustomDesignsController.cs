@@ -89,6 +89,26 @@ namespace AfricanMagicSystem.Controllers
                 return RedirectToAction("Index");
             }
             return View(customDesign);
+        }        
+
+        // POST: CustomDesigns/MakeCustom
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> MakeCustom(CustomDesignSales customDesignSales, int? id)
+        {
+            CustomDesign customDesign = await db.CustomDesigns.FindAsync(id);
+            if (customDesign == null)
+            {
+                return HttpNotFound();
+            }
+            if (ModelState.IsValid)
+            {                                
+                customDesignSales.DesignID = customDesign.DesignNumber;
+                db.CustomDesignSales.Add(customDesignSales);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(customDesignSales);
         }
 
         // GET: CustomDesigns/Delete/5
@@ -115,6 +135,15 @@ namespace AfricanMagicSystem.Controllers
             db.CustomDesigns.Remove(customDesign);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public async Task<ActionResult> RenderImage(int id)
+        {
+            CustomDesign customDesign = await db.CustomDesigns.FindAsync(id);
+
+            byte[] photoBack = customDesign.InternalImage;
+
+            return File(photoBack, "image/png");
         }
 
         protected override void Dispose(bool disposing)
