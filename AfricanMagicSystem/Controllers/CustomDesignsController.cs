@@ -96,14 +96,9 @@ namespace AfricanMagicSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> MakeCustom(CustomDesignSales customDesignSales, int? id)
         {
-            CustomDesign customDesign = await db.CustomDesigns.FindAsync(id);
-            if (customDesign == null)
-            {
-                return HttpNotFound();
-            }
             if (ModelState.IsValid)
             {                                
-                customDesignSales.DesignID = customDesign.DesignNumber;
+                customDesignSales.DesignID = Convert.ToInt32(id);
                 db.CustomDesignSales.Add(customDesignSales);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

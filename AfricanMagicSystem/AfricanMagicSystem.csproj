@@ -1209,6 +1209,7 @@
     <Content Include="Views\StockReceiveds\Edit.cshtml" />
     <Content Include="Views\StockReceiveds\Index.cshtml" />
     <Content Include="Views\SupplierShippings\ReceiveStock.cshtml" />
+    <Content Include="Views\Checkout\AddressAndPaymentWithPoints.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
