@@ -66,5 +66,6 @@ namespace AfricanMagicSystem.Models
 
         public bool? Completed { get; set; }
 
+        public bool? Paid { get; set; }
     }
 }

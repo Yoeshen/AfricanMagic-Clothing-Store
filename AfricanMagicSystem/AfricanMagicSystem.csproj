@@ -584,6 +584,10 @@
     <Compile Include="Migrations\202011302027582_UPdatedTwoTables.designer.cs">
       <DependentUpon>202011302027582_UPdatedTwoTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011302308411_Paid.cs" />
+    <Compile Include="Migrations\202011302308411_Paid.designer.cs">
+      <DependentUpon>202011302308411_Paid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1227,6 +1231,7 @@
     <Content Include="Views\CustomDesignSales\Details.cshtml" />
     <Content Include="Views\CustomDesignSales\Edit.cshtml" />
     <Content Include="Views\CustomDesignSales\Index.cshtml" />
+    <Content Include="Views\CustomDesignSales\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1339,6 +1344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011302027582_UPdatedTwoTables.resx">
       <DependentUpon>202011302027582_UPdatedTwoTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302308411_Paid.resx">
+      <DependentUpon>202011302308411_Paid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

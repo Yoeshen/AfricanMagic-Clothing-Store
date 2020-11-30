@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -65,8 +62,8 @@
             @Html.DisplayFor(modelItem => item.TotalAmount)
         </td>
         <td>
-            @Html.ActionLink("Review", "Details", new { id=item.CustomSalesID }) |
-            @Html.ActionLink("Cancel", "Delete", new { id=item.CustomSalesID })
+            @Html.ActionLink("View Progress", "Details", new { id = item.CustomSalesID }) |
+            @Html.ActionLink("Cancel", "Delete", new { id = item.CustomSalesID })
         </td>
     </tr>
 }

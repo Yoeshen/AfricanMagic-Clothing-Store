@@ -16,14 +16,13 @@
     <li>
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
-    @if (Request.IsAuthenticated)
+    @if (!User.IsInRole("Admin") && !User.IsInRole("Business") && !User.IsInRole("Supplier"))
     {
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>@Html.ActionLink("Track Order", "Index", "Tracking")</li>
-                <li>@Html.ActionLink("Leave Comment", "Create", "CustomerReviews")</li>
-                <li>@Html.ActionLink("View All Reviews", "CustomerIndex","CustomerReviews")</li>
+                <li>@Html.ActionLink("Leave Comment", "Create", "CustomerReviews")</li>                
             </ul>
         </li>
     }

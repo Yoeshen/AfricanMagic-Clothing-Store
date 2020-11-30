@@ -78,9 +78,9 @@
     </dl>
 </div>
 
-<hr/>
+<hr />
 <p class="text-info text-center" style="font-size:26px;">Chosen Template</p>
-<hr/>
+<hr />
 <img src="@Url.Action("RenderImage","CustomDesigns", new { id = Model.DesignID })" class="img-responsive img-rounded" style=" max-width: 600px; max-height: 800px;background-size: contain;" />
 
 
@@ -92,10 +92,18 @@
     <img src="@Url.Action("RenderImage","CustomDesignSales", new { id = Model.CustomSalesID })" class="img-responsive img-rounded" style=" max-width: 600px; max-height: 800px;background-size: contain;" />
 </a>
 <br />
-
-<p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue; right:10px;">
-    @Html.ActionLink("Update Progress", "Edit", new { id = Model.CustomSalesID })
-</p>
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue; right:10px;">
+        @Html.ActionLink("Update Progress", "Edit", new { id = Model.CustomSalesID })
+    </p>
+}
+@if (Model.Completed == true && Model.Paid == false)
+{
+    <p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue; right:10px;">
+        @Html.ActionLink("Accept And Pay R" + (Model.TotalAmount*0.9), "AcceptDesign", new { id = Model.CustomSalesID })
+    </p>
+}
 <p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue;">
     @Html.ActionLink("Back to List", "Index")
 </p>

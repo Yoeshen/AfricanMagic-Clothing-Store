@@ -22,7 +22,8 @@
                             <li>@Html.ActionLink("Comments", "Index", "CustomerReviews")</li>
                             <li>@Html.ActionLink("Pending Bulk Orders", "Index", "BulkOrderSales")</li>
                             <li>@Html.ActionLink("Generate Purchase Order", "ViewLowStock", "PurchaseOrders")</li>
-                            <li>@Html.ActionLink("View Custom Design Orders", "Index", "CustomDesignSales")</li>
+                            <li>@Html.ActionLink("View Custom Design Orders", "AdminIndex", "CustomDesignSales")</li>
+                            <li>@Html.ActionLink("View All Reviews", "CustomerIndex", "CustomerReviews")</li>
 
                             <li class="divider"></li>
                             <li class="dropdown-header">Roles Admin</li>
@@ -31,33 +32,29 @@
                         </ul>
                     </li>
                 }
-                @if (Request.IsAuthenticated && User.IsInRole("Business"))
+                else if (Request.IsAuthenticated && User.IsInRole("Business"))
                 {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Business User Functions<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("View Current Quote", "Index", "Storages")</li>
-                            <li>@Html.ActionLink("Make Custom", "MakeCustom", "CustomDesigns")</li>
+                            <li>@Html.ActionLink("Create A Custom Design", "Index", "CustomDesigns")</li>
+                            <li>@Html.ActionLink("View Bulk Products", "Index", "BulkOrderImages")</li>
+                            <li>@Html.ActionLink("View Bulk Orders", "CustomerIndex", "BulkOrderSales")</li>
+                            <li>@Html.ActionLink("View Custom Design Orders", "Index", "CustomDesignSales")</li>
                         </ul>
                     </li>
                 }
-
-
-                @if (Request.IsAuthenticated && !User.IsInRole("Business"))
+                else if (Request.IsAuthenticated && User.IsInRole("Supplier"))
                 {
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                }
-                else
-                {
-                    <li>@Html.ActionLink("Products", "Index", "BulkOrderImages")</li>
-                    <li>@Html.ActionLink("View Orders", "CustomerIndex","BulkOrderSales")</li>
-                }
-
-                @if(Request.IsAuthenticated && User.IsInRole("Supplier"))
-                {
-                    <li>@Html.ActionLink("Order Status", "Index", "SupplierShippings")</li>
-                }
-
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Supplier Functions<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Order Status", "Index", "SupplierShippings")</li>
+                        </ul>
+                    </li>                    
+                }                
+                <li>@Html.ActionLink("Products", "Index", "Products")</li>                             
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About us <b class="caret"></b></a>
