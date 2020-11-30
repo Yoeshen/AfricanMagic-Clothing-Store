@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
+using System.Security.Cryptography;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -140,18 +141,25 @@ namespace AfricanMagicSystem.Controllers
 
             List<Product> products = (from q in db.Products
                                       select q).ToList();
-            string tmp = "";
+
+            var LowProducts = new List<string>();
+
+            List<String> Suppliers = (from x in db.Suppliers
+                                      select x.SupplierName).ToList();
+            
             foreach (var item in products)
             {
-                if (item.Stock <= 40)
+                if (item.Stock <= 10)
                 {
-                    tmp = item.Name + ",";
+                    LowProducts.Add(item.Name);
                 }
             }
 
-            ViewBag.Low = tmp;
+            ViewData["Products"] = LowProducts;
+            ViewData["Suppliers"] = Suppliers;
             return View();
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

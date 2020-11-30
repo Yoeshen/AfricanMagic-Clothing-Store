@@ -5,9 +5,34 @@
 
 <h2>View Low Stock</h2>
 
-<p>
-    @ViewBag.Low
-</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Product")
+        </th>
+        <th>
+            @Html.DisplayName("Supplier")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in  (List<String>)ViewData["Products"])
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+            <td>
+                @Html.DropDownList("Suppliers", ((List<String>)ViewData["Suppliers"]).Select(m => new SelectListItem { Text = m, Value = m}))
+            </td>
+            <td>
+                @Html.TextBox("Quantity")
+            </td>
+        </tr>
+    }
+</table>
 
 @using (Html.BeginForm("GenerateLow", "PurchaseOrders"))
 {

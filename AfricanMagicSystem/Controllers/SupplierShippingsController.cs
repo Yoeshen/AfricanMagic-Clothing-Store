@@ -119,15 +119,19 @@ namespace AfricanMagicSystem.Controllers
             List<SupplierShipping> check = (from q in db.supplierShippings
                                             select q).ToList();
 
+            var adder = new List<String>();
+
             foreach (var item in check)
             {
                 if(item.ShippingID == int.Parse(Value))
                 {
-                    ViewBag.Message = item.Notes;
+                    ViewData["Supplier"] = item.Subject;
+                    ViewData["Products"] = item.Description;
+                    ViewData["Quantity"] = item.Notes;
+
                 }
             }
-
-            return View();
+            return View("ReceiveStock");
         }
 
         protected override void Dispose(bool disposing)
