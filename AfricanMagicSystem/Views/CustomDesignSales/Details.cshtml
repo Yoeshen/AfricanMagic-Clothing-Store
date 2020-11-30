@@ -1,0 +1,101 @@
+﻿@model AfricanMagicSystem.Models.CustomDesignSales
+
+@{
+    ViewBag.Title = "Review";
+}
+
+<h2>Review Custom Sale @Model.CustomSalesID</h2>
+
+<div>
+    <h4 class="text-info text-center" style="font-size:26px;">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomSalesName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomSalesName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShirtText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShirtText)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+    </dl>
+</div>
+
+<hr/>
+<p class="text-info text-center" style="font-size:26px;">Chosen Template</p>
+<hr/>
+<img src="@Url.Action("RenderImage","CustomDesigns", new { id = Model.DesignID })" class="img-responsive img-rounded" style=" max-width: 600px; max-height: 800px;background-size: contain;" />
+
+
+<hr />
+<p class="text-info text-center" style="font-size:26px;">Image To Print</p>
+<hr />
+
+<a href="@Url.Action("RenderImage","CustomDesignSales", new { id = Model.CustomSalesID })" download>
+    <img src="@Url.Action("RenderImage","CustomDesignSales", new { id = Model.CustomSalesID })" class="img-responsive img-rounded" style=" max-width: 600px; max-height: 800px;background-size: contain;" />
+</a>
+<br />
+
+<p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue; right:10px;">
+    @Html.ActionLink("Update Progress", "Edit", new { id = Model.CustomSalesID })
+</p>
+<p class="btn btn-group" style="font-size: 20px; font-weight: 600; border: 1px solid lightblue;">
+    @Html.ActionLink("Back to List", "Index")
+</p>

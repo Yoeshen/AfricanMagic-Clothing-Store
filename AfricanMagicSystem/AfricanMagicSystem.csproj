@@ -433,6 +433,7 @@
     <Compile Include="Controllers\BulkOrderImagesController.cs" />
     <Compile Include="Controllers\BulkOrderSalesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CustomDesignSalesController.cs" />
     <Compile Include="Controllers\CustomDesignsController.cs" />
     <Compile Include="Controllers\CustomerReviewsController.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
@@ -1209,7 +1210,6 @@
     <Content Include="Views\CustomDesigns\Details.cshtml" />
     <Content Include="Views\CustomDesigns\Edit.cshtml" />
     <Content Include="Views\CustomDesigns\Index.cshtml" />
-    <Content Include="Views\CustomDesigns\MakeCustoms.cshtml" />
     <Content Include="Views\CustomDesigns\MakeCustom.cshtml" />
     <Content Include="Views\StockReceiveds\Create.cshtml" />
     <Content Include="Views\StockReceiveds\Delete.cshtml" />
@@ -1218,6 +1218,11 @@
     <Content Include="Views\StockReceiveds\Index.cshtml" />
     <Content Include="Views\SupplierShippings\ReceiveStock.cshtml" />
     <Content Include="Views\Checkout\AddressAndPaymentWithPoints.cshtml" />
+    <Content Include="Views\CustomDesignSales\Create.cshtml" />
+    <Content Include="Views\CustomDesignSales\Delete.cshtml" />
+    <Content Include="Views\CustomDesignSales\Details.cshtml" />
+    <Content Include="Views\CustomDesignSales\Edit.cshtml" />
+    <Content Include="Views\CustomDesignSales\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

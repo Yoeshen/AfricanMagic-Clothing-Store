@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AfricanMagicSystem.Models;
+using System.Text;
 
 namespace AfricanMagicSystem.Controllers
 {
@@ -89,7 +90,7 @@ namespace AfricanMagicSystem.Controllers
                 return RedirectToAction("Index");
             }
             return View(customDesign);
-        }        
+        }
 
         // POST: CustomDesigns/MakeCustom
         [HttpPost]
@@ -97,14 +98,73 @@ namespace AfricanMagicSystem.Controllers
         public async Task<ActionResult> MakeCustom(CustomDesignSales customDesignSales, int? id)
         {
             if (ModelState.IsValid)
-            {                                
+            {
+                var Colour = Request.Form["Colour"].ToString();
+                var Size = Request.Form["Size"].ToString();
+                var Quantity = int.Parse(Request.Form["Quantity"].ToString());
                 customDesignSales.DesignID = Convert.ToInt32(id);
+                customDesignSales.Colour = Colour;
+                customDesignSales.Size = Size;
+                customDesignSales.Quantity = Quantity;
+
+                if (Size == "Small")
+                {
+                    customDesignSales.TotalAmount = 130 * Quantity;
+                }
+                else if (Size == "Medium")
+                {
+                    customDesignSales.TotalAmount = 160 * Quantity;
+                }
+                else if (Size == "Large")
+                {
+                    customDesignSales.TotalAmount = 190 * Quantity;
+                }
+
                 db.CustomDesignSales.Add(customDesignSales);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                double DepositPrice = customDesignSales.TotalAmount * 0.10;
+
+                // Retrieve required values for the PayFast Merchant
+                string name = "AfricanMagic Custom Design Deposit For Sale #" + customDesignSales.CustomSalesID;
+                string description = "This is a non-refundable deposit required for the complete mock-up.";
+
+                string site = "https://sandbox.payfast.co.za/eng/process";
+                string merchant_id = "";
+                string merchant_key = "";
+
+                string paymentMode = System.Configuration.ConfigurationManager.AppSettings["PaymentMode"];
+
+                if (paymentMode == "test")
+                {
+                    site = "https://sandbox.payfast.co.za/eng/process?";
+                    merchant_id = "10000100";
+                    merchant_key = "46f0cd694581a";
+                }
+
+                // Build the query string for payment site
+
+                StringBuilder str = new StringBuilder();
+                str.Append("merchant_id=" + HttpUtility.UrlEncode(merchant_id));
+                str.Append("&merchant_key=" + HttpUtility.UrlEncode(merchant_key));
+                str.Append("&return_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_ReturnURL"]));
+                str.Append("&cancel_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_CancelURL"]));
+                str.Append("&notify_url=" + HttpUtility.UrlEncode(System.Configuration.ConfigurationManager.AppSettings["PF_NotifyURL"]));
+
+                str.Append("&m_payment_id=" + HttpUtility.UrlEncode(customDesignSales.CustomSalesID.ToString()));
+                str.Append("&amount=" + HttpUtility.UrlEncode(DepositPrice.ToString()));
+                str.Append("&item_name=" + HttpUtility.UrlEncode(name));
+                str.Append("&item_description=" + HttpUtility.UrlEncode(description));
+
+                // Redirect to PayFast
+                return Redirect(site + str.ToString());
             }
-            return View(customDesignSales);
+            else
+            {
+                return View(customDesignSales);
+            }
         }
+                   
 
         // GET: CustomDesigns/Delete/5
         public async Task<ActionResult> Delete(int? id)
