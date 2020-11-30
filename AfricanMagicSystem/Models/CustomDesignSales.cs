@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace AfricanMagicSystem.Models
 {
-    [Bind(Exclude="CustomSalesID")]
+    
     public class CustomDesignSales
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();

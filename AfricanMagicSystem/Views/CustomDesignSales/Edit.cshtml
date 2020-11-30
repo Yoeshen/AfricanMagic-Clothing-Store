@@ -13,6 +13,15 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.CustomSalesID)
+    @Html.HiddenFor(model => model.DesignID)
+    @Html.HiddenFor(model => model.Email)
+    @Html.HiddenFor(model => model.Colour)
+    @Html.HiddenFor(model => model.Size)
+    @Html.HiddenFor(model => model.Quantity)
+    @Html.HiddenFor(model => model.TotalAmount)
+    @Html.HiddenFor(model => model.ShirtText)    
+    @Html.HiddenFor(model => model.CustomSalesName)    
+
 <div class="form-horizontal">
     <h4>CustomDesignSales</h4>
     
