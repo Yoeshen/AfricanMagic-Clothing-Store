@@ -60,6 +60,8 @@ namespace AfricanMagicSystem.Models
 
         public string Colour { get; set; }
 
+        public int Quantity { get; set; }
+
         public double TotalAmount { get; set; }
 
     }

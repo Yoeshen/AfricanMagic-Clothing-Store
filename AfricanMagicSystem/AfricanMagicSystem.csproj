@@ -575,6 +575,10 @@
     <Compile Include="Migrations\202011301042423_UpdatedCustomSales.designer.cs">
       <DependentUpon>202011301042423_UpdatedCustomSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011301050370_UPdatedCustomSalesAgain.cs" />
+    <Compile Include="Migrations\202011301050370_UPdatedCustomSalesAgain.designer.cs">
+      <DependentUpon>202011301050370_UPdatedCustomSalesAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1320,6 +1324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011301042423_UpdatedCustomSales.resx">
       <DependentUpon>202011301042423_UpdatedCustomSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301050370_UPdatedCustomSalesAgain.resx">
+      <DependentUpon>202011301050370_UPdatedCustomSalesAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
