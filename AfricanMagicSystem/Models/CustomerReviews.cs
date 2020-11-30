@@ -22,7 +22,6 @@ namespace AfricanMagicSystem.Models
         public int Vote { get; set; }
 
         [Required(ErrorMessage = "Enter a comment.")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please use letters only")]
         public string Comment { get; set; }
 
         public bool? Flagged { get; set; }

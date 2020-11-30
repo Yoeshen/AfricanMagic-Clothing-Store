@@ -208,6 +208,72 @@ namespace AfricanMagicSystem.Controllers
             return View();
         }
 
+        public ActionResult Censor(int? id)
+        {
+            List <CustomerReviews> customerReviews = (from q in db.CustomerReview
+                                        select q).ToList();
+
+            string comment = "";
+
+            foreach (var item in customerReviews)
+            {
+                if(item.CustomerReviewID == id)
+                {
+                    comment = item.Comment;
+                }
+            }
+
+            var punctuation = comment.Where(char.IsPunctuation).Distinct().ToArray();
+
+            var words = comment.Split().Select(x => x.Trim(punctuation));
+
+
+            List<string> censor = new List<string>();
+
+            using (StreamReader reader = new StreamReader(HttpContext.Server.MapPath("~/Photos/swearWords.txt")))
+            {
+                foreach (var x in words)
+                {
+                    string censored = "";
+                    while (!reader.EndOfStream)
+                    {
+                        string currentLine = reader.ReadLine();
+
+                        if (currentLine == x.ToLower() || currentLine == x.ToUpper())
+                        {
+                            censored = new string('*', x.Length);
+                            
+                        }
+                    }
+                    if (censored.Contains('*'))
+                    {
+                        censor.Add(censored);
+                    }
+                    else
+                    {
+                        censor.Add(x);
+                    }
+
+                    reader.DiscardBufferedData();
+                    reader.BaseStream.Seek(0, SeekOrigin.Begin);
+                }
+            }
+
+            string c = String.Join(" ",censor.ToArray());
+            foreach (var item in customerReviews)
+            {
+                if (item.CustomerReviewID == id)
+                {
+                    item.Comment = c;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            return View("CensoredSuccess");
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
