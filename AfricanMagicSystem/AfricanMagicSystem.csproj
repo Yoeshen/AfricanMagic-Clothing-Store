@@ -580,6 +580,10 @@
     <Compile Include="Migrations\202011301050370_UPdatedCustomSalesAgain.designer.cs">
       <DependentUpon>202011301050370_UPdatedCustomSalesAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011302027582_UPdatedTwoTables.cs" />
+    <Compile Include="Migrations\202011302027582_UPdatedTwoTables.designer.cs">
+      <DependentUpon>202011302027582_UPdatedTwoTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1332,6 +1336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011301050370_UPdatedCustomSalesAgain.resx">
       <DependentUpon>202011301050370_UPdatedCustomSalesAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302027582_UPdatedTwoTables.resx">
+      <DependentUpon>202011302027582_UPdatedTwoTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

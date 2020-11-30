@@ -64,5 +64,7 @@ namespace AfricanMagicSystem.Models
 
         public double TotalAmount { get; set; }
 
+        public bool? Completed { get; set; }
+
     }
 }

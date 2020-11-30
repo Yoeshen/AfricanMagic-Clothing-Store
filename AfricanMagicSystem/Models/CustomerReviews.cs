@@ -19,6 +19,8 @@ namespace AfricanMagicSystem.Models
 
         public string Username { get; set; }
 
+        public string PartReviewed { get; set; }
+
         public int Vote { get; set; }
 
         [Required(ErrorMessage = "Enter a comment.")]
