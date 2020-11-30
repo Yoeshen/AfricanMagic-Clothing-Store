@@ -571,6 +571,10 @@
     <Compile Include="Migrations\202011281258434_StcokReceiveTbl.designer.cs">
       <DependentUpon>202011281258434_StcokReceiveTbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011301042423_UpdatedCustomSales.cs" />
+    <Compile Include="Migrations\202011301042423_UpdatedCustomSales.designer.cs">
+      <DependentUpon>202011301042423_UpdatedCustomSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1313,6 +1317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011281258434_StcokReceiveTbl.resx">
       <DependentUpon>202011281258434_StcokReceiveTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301042423_UpdatedCustomSales.resx">
+      <DependentUpon>202011301042423_UpdatedCustomSales.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
