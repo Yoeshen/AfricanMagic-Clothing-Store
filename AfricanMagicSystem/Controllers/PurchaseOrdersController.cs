@@ -119,18 +119,30 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> GenerateLow(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> GenerateLow(PurchaseOrder purchaseOrder)
         {
-            Product product = db.Products.Find(id);
 
-            string productName = product.Name;
+            List<Product> products = (from q in db.Products
+                                     select q).ToList();
+
+            string name = "";
+
+            foreach (var item in products)
+            {
+                if (item.Stock <= 15)
+                {
+                    name = item.Name;
+                }
+            }
 
             var Quantity = Request.Form["Quantity"].ToString();
             var Supplier = Request.Form["Supplier"].ToString();
 
             SupplierShipping supplierShipping = new SupplierShipping();
             {
-                supplierShipping.Description = productName;
+                supplierShipping.Description = name;
                 supplierShipping.Notes = Quantity;
                 supplierShipping.Subject = Supplier;
                 supplierShipping.Time = "";
@@ -138,7 +150,7 @@ namespace AfricanMagicSystem.Controllers
                 supplierShipping.Confirmed = false;             
             };
 
-            ViewBag.Message = "Successfully Ordered: " + Quantity + " " + productName + ".";
+            ViewBag.Message = "Successfully Ordered: " + Quantity + " " + name + ".";
             db.supplierShippings.Add(supplierShipping);
             await db.SaveChangesAsync();
             return View();

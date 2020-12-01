@@ -1,4 +1,4 @@
-﻿@model AfricanMagicSystem.Models.Product
+﻿@model AfricanMagicSystem.Models.SupplierShipping
 @{
     ViewBag.Title = "ViewLowStock";
 }
@@ -8,12 +8,49 @@
 @using (Html.BeginForm("GenerateLow", "PurchaseOrders", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    
+    @Html.ValidationSummary()
+
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.Time)
+    @Html.HiddenFor(model => model.Date)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @Value = ViewData["Products"]} })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Supplier", new List<SelectListItem>
+       {
+           new SelectListItem{ Text = "Alpha", Value = "Alpha"},
+           new SelectListItem{ Text = "Beta", Value = "Beta"},
+           new SelectListItem{ Text = "Theta", Value = "Theta"}
+       })
+            @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Quantity", new List<SelectListItem>
+      {
+          new SelectListItem{ Text = "50", Value = "50"},
+          new SelectListItem{ Text = "70", Value = "70"},
+          new SelectListItem{ Text = "100", Value = "100"},
+          new SelectListItem{ Text = "150", Value = "150"},
+          new SelectListItem{ Text = "200",Value = "200"}
+      })
+            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+
+        </div>
+
+    </div>
+</div>
+
 }
 
-@using (Html.BeginForm("GenerateLow", "PurchaseOrders"))
-{
-    @Html.AntiForgeryToken();
-    <input type="submit" value="Click to Generate"/>
-}
