@@ -147,7 +147,10 @@ namespace AfricanMagicSystem.Controllers
                 supplierShipping.Subject = Supplier;
                 supplierShipping.Time = "";
                 supplierShipping.Date = "";
-                supplierShipping.Confirmed = false;             
+                supplierShipping.Confirmed = false;
+                supplierShipping.Accepted = false;
+                supplierShipping.Rejected = false;
+                supplierShipping.Completed = false;
             };
 
             ViewBag.Message = "Successfully Ordered: " + Quantity + " " + name + ".";

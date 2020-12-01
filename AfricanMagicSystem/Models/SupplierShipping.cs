@@ -24,6 +24,12 @@ namespace AfricanMagicSystem.Models
 
         public bool Confirmed { get; set; }
 
+        public bool Accepted { get; set; }
+
+        public bool Rejected { get; set; }
+
+        public bool Completed { get; set; }
+
         public string Notes { get; set; }
     }
 }

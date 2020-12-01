@@ -117,6 +117,7 @@ namespace AfricanMagicSystem.Controllers
             return View("~/SupplierShippings/ReceiveStock");
         }
 
+       
 
 
         protected override void Dispose(bool disposing)
