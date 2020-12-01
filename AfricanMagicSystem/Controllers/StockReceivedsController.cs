@@ -117,8 +117,36 @@ namespace AfricanMagicSystem.Controllers
             return View("~/SupplierShippings/ReceiveStock");
         }
 
-       
+       public ActionResult UpdateStock(StockReceived stockReceived)
+        {
+            List<Product> products = (from q in db.Products
+                                      select q).ToList();
 
+            foreach (var item in products)
+            {
+                if(stockReceived.ProductsReceived == item.Name)
+                {
+                    item.Stock += (int)stockReceived.Quantity;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                db.StockReceived.Add(stockReceived);
+                db.SaveChanges();
+
+            }
+
+
+            return RedirectToAction("StockTable");
+        }
+
+        public async Task<ActionResult> StockTable()
+        {
+            return View(await db.Products.ToListAsync());
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -591,6 +591,10 @@
     <Compile Include="Migrations\202012010659515_updatedsupplier.designer.cs">
       <DependentUpon>202012010659515_updatedsupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012010843343_updatedTblreceive.cs" />
+    <Compile Include="Migrations\202012010843343_updatedTblreceive.designer.cs">
+      <DependentUpon>202012010843343_updatedTblreceive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -1236,6 +1240,8 @@
     <Content Include="Views\CustomDesignSales\Index.cshtml" />
     <Content Include="Views\CustomDesignSales\AdminIndex.cshtml" />
     <Content Include="Views\PurchaseOrders\ViewLow.cshtml" />
+    <Content Include="Views\StockReceiveds\Success.cshtml" />
+    <Content Include="Views\StockReceiveds\StockTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1354,6 +1360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012010659515_updatedsupplier.resx">
       <DependentUpon>202012010659515_updatedsupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012010843343_updatedTblreceive.resx">
+      <DependentUpon>202012010843343_updatedTblreceive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

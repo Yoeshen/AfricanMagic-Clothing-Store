@@ -24,7 +24,7 @@ namespace AfricanMagicSystem.Models
         public string Supplier { get; set; }
 
         [Required]
-        public DateTime DateReceived { get; set; }
+        public string DateReceived { get; set; }
 
         [Required]
         public string Notes { get; set; }

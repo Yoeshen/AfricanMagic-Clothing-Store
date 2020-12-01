@@ -131,7 +131,7 @@ namespace AfricanMagicSystem.Controllers
 
             foreach (var item in products)
             {
-                if (item.Stock <= 15)
+                if (item.Stock <= 20)
                 {
                     name = item.Name;
                 }
@@ -173,7 +173,7 @@ namespace AfricanMagicSystem.Controllers
             
             foreach (var item in products)
             {
-                if (item.Stock <= 15)
+                if (item.Stock <= 20)
                 {
                     LowProducts = item.Name;
                 }

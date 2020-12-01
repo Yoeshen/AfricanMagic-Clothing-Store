@@ -26,12 +26,15 @@
         <th>
             @Html.DisplayNameFor(model => model.Confirmed)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        if (item.Confirmed == true)
+        if (item.Completed == true)
         {
             <tr>
                 <td>
@@ -52,7 +55,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Confirmed)
                 </td>
-
+                <td>
+                    @Html.DisplayFor(modelIItem => item.Completed)
+                </td>
             </tr>
         }
     }
