@@ -452,7 +452,6 @@
     <Compile Include="Controllers\StockReceivedsController.cs" />
     <Compile Include="Controllers\StoragesController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
-    <Compile Include="Controllers\SupplierShipController.cs" />
     <Compile Include="Controllers\SupplierShippingsController.cs" />
     <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
@@ -1232,6 +1231,7 @@
     <Content Include="Views\CustomDesignSales\Edit.cshtml" />
     <Content Include="Views\CustomDesignSales\Index.cshtml" />
     <Content Include="Views\CustomDesignSales\AdminIndex.cshtml" />
+    <Content Include="Views\PurchaseOrders\ViewLow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

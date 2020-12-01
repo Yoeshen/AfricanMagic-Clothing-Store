@@ -106,6 +106,8 @@ namespace AfricanMagicSystem.Controllers
                 customDesignSales.Colour = Colour;
                 customDesignSales.Size = Size;
                 customDesignSales.Quantity = Quantity;
+                customDesignSales.Paid = false;
+                customDesignSales.Completed = false;
 
                 if (Size == "Small")
                 {

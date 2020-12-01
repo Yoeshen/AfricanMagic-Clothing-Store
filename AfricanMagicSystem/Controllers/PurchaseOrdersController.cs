@@ -22,6 +22,12 @@ namespace AfricanMagicSystem.Controllers
             return View(await db.PurchaseOrders.ToListAsync());
         }
 
+        // GET: PurchaseOrders
+        public async Task<ActionResult> ViewLow()
+        {
+            return View(await db.Products.ToListAsync());
+        }
+
         // GET: PurchaseOrders/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -113,7 +119,7 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> GenerateLow()
+        public async Task<ActionResult> GenerateLow(int id, int supplierID, int quantity)
         {
             List<Product> products = (from q in db.Products
                                       select q).ToList();
@@ -133,7 +139,7 @@ namespace AfricanMagicSystem.Controllers
 
             db.PurchaseOrders.Add(purchaseOrder);
             await db.SaveChangesAsync();
-            return View("Success");
+            return View();
         }
 
         public ActionResult ViewLowStock()
@@ -143,18 +149,21 @@ namespace AfricanMagicSystem.Controllers
                                       select q).ToList();
 
             var LowProducts = new List<string>();
+            var LowProductID = new List<int>();
 
             List<String> Suppliers = (from x in db.Suppliers
                                       select x.SupplierName).ToList();
             
             foreach (var item in products)
             {
-                if (item.Stock <= 10)
+                if (item.Stock <= 40)
                 {
                     LowProducts.Add(item.Name);
+                    LowProductID.Add(item.ID);
                 }
             }
 
+            ViewData["ProductID"] = LowProductID;
             ViewData["Products"] = LowProducts;
             ViewData["Suppliers"] = Suppliers;
             return View();
