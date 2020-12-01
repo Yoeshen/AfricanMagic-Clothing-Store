@@ -30,8 +30,12 @@
             <div class="col-md-10">
                 @Html.DropDownList("Check", new List<SelectListItem>
            {
-               new SelectListItem{ Text = ""}
+               new SelectListItem{ Text = "Bulk Orders", Value = "Bulk Orders"},
+               new SelectListItem{ Text = "Custom Design System", Value = "Custom Design System"},
+               new SelectListItem{ Text = "Delivery Time and Condition", Value = "Delivery Time and Condition"},
+               new SelectListItem{ Text = "Other", Value = "Other"}
            })
+                @Html.ValidationMessageFor(model => model.PartReviewed, "", new { @class = "text-danger"})
             </div>
         </div>
 

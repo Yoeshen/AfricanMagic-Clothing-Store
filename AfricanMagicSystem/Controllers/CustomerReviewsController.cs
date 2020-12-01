@@ -65,6 +65,7 @@ namespace AfricanMagicSystem.Controllers
             var words = phrase.Split().Select(x => x.Trim(punctuation));
             int count = 0;
             var rating = int.Parse(Request.Form["Vote"].ToString());
+            var system = Request.Form["Check"];
 
             using (StreamReader reader = new StreamReader(HttpContext.Server.MapPath("~/Photos/swearWords.txt")))
             {
@@ -104,6 +105,7 @@ namespace AfricanMagicSystem.Controllers
                             customerReviews.InvoiceNumber = item.SaleId;
                             customerReviews.Username = item.Username;
                             customerReviews.Vote = rating;
+                            customerReviews.PartReviewed = system;
                             db.CustomerReview.Add(customerReviews);
                             await db.SaveChangesAsync();
                             return RedirectToAction("Flagged");
@@ -113,6 +115,7 @@ namespace AfricanMagicSystem.Controllers
                             customerReviews.InvoiceNumber = item.SaleId;
                             customerReviews.Username = item.Username;
                             customerReviews.Vote = rating;
+                            customerReviews.PartReviewed = system;
                             db.CustomerReview.Add(customerReviews);
                             await db.SaveChangesAsync();
                             return RedirectToAction("ThankYou");
@@ -208,6 +211,7 @@ namespace AfricanMagicSystem.Controllers
             return View();
         }
 
+        //Censors the comment in the database
         public ActionResult Censor(int? id)
         {
             List <CustomerReviews> customerReviews = (from q in db.CustomerReview

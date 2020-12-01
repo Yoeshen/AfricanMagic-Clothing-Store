@@ -148,22 +148,21 @@ namespace AfricanMagicSystem.Controllers
             List<Product> products = (from q in db.Products
                                       select q).ToList();
 
-            var LowProducts = new List<string>();
-            var LowProductID = new List<int>();
+            var LowProducts = "";
+            //var LowProductID = new List<int>();
 
             List<String> Suppliers = (from x in db.Suppliers
                                       select x.SupplierName).ToList();
             
             foreach (var item in products)
             {
-                if (item.Stock <= 40)
+                if (item.Stock <= 15)
                 {
-                    LowProducts.Add(item.Name);
-                    LowProductID.Add(item.ID);
+                    LowProducts = item.Name;
                 }
             }
 
-            ViewData["ProductID"] = LowProductID;
+            //ViewData["ProductID"] = LowProductID;
             ViewData["Products"] = LowProducts;
             ViewData["Suppliers"] = Suppliers;
             return View();
