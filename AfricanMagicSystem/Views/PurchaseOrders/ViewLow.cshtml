@@ -20,7 +20,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.Stock < 40)
+        if (item.Stock < 20)
         {
             <tr>
                 <td>
@@ -36,5 +36,26 @@
         }
 
     }
+
+    <div class="form-group">
+        @Html.Label("Supplier", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Supplier", new List<SelectListItem>
+       {
+           new SelectListItem{ Text = "Alpha", Value = "Alpha"},
+           new SelectListItem{ Text = "Beta", Value = "Beta"},
+           new SelectListItem{ Text = "Tetha", Value = "Tetha"}
+       })
+            @Html.ValidationMessage("Supplier", "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Quantity", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("Quantity", "" , new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage("Quantity", "", new { @class = "text-danger" })
+        </div>
+    </div>
 
 </table>

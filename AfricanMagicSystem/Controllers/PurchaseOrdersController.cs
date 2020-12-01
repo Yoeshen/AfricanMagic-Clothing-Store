@@ -119,25 +119,27 @@ namespace AfricanMagicSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> GenerateLow(int id, int supplierID, int quantity)
+        public async Task<ActionResult> GenerateLow(int id)
         {
-            List<Product> products = (from q in db.Products
-                                      select q).ToList();
-            string tmp = "";
-            foreach (var item in products)
-            {
-                if(item.Stock <= 40)
-                {
-                    tmp = item.Name +  ","; 
-                }
-            }
+            Product product = db.Products.Find(id);
 
-            PurchaseOrder purchaseOrder = new PurchaseOrder
+            string productName = product.Name;
+
+            var Quantity = Request.Form["Quantity"].ToString();
+            var Supplier = Request.Form["Supplier"].ToString();
+
+            SupplierShipping supplierShipping = new SupplierShipping();
             {
-                ProductNeeded = tmp
+                supplierShipping.Description = productName;
+                supplierShipping.Notes = Quantity;
+                supplierShipping.Subject = Supplier;
+                supplierShipping.Time = "";
+                supplierShipping.Date = "";
+                supplierShipping.Confirmed = false;             
             };
 
-            db.PurchaseOrders.Add(purchaseOrder);
+            ViewBag.Message = "Successfully Ordered: " + Quantity + " " + productName + ".";
+            db.supplierShippings.Add(supplierShipping);
             await db.SaveChangesAsync();
             return View();
         }
