@@ -171,7 +171,7 @@ namespace AfricanMagicSystem.Controllers
                         SmtpClient smtp1 = new SmtpClient();
                         smtp1.Host = "smtp.gmail.com";
                         smtp1.EnableSsl = true;
-                        NetworkCredential networkCredential1 = new NetworkCredential("africanmagicsystem@gmail.com", "Afmag19@");
+                        NetworkCredential networkCredential1 = new NetworkCredential("africanmagicsystem@gmail.com", "zbpabilmryequenp");
                         smtp1.UseDefaultCredentials = true;
                         smtp1.Credentials = networkCredential1;
                         smtp1.Port = 587;
@@ -318,7 +318,7 @@ namespace AfricanMagicSystem.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential networkCredential = new NetworkCredential("africanmagicsystem@gmail.com", "Afmag19@");
+                NetworkCredential networkCredential = new NetworkCredential("africanmagicsystem@gmail.com", "zbpabilmryequenp");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = networkCredential;
                 smtp.Port = 587;
@@ -554,7 +554,7 @@ namespace AfricanMagicSystem.Controllers
                         SmtpClient smtp1 = new SmtpClient();
                         smtp1.Host = "smtp.gmail.com";
                         smtp1.EnableSsl = true;
-                        NetworkCredential networkCredential1 = new NetworkCredential("africanmagicsystem@gmail.com", "Afmag19@");
+                        NetworkCredential networkCredential1 = new NetworkCredential("africanmagicsystem@gmail.com", "zbpabilmryequenp");
                         smtp1.UseDefaultCredentials = true;
                         smtp1.Credentials = networkCredential1;
                         smtp1.Port = 587;
@@ -701,7 +701,7 @@ namespace AfricanMagicSystem.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential networkCredential = new NetworkCredential("africanmagicsystem@gmail.com", "Afmag19@");
+                NetworkCredential networkCredential = new NetworkCredential("africanmagicsystem@gmail.com", "zbpabilmryequenp");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = networkCredential;
                 smtp.Port = 587;

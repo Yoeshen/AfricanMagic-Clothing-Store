@@ -156,7 +156,7 @@ namespace AfricanMagicSystem.Controllers
             ViewBag.Message = "Successfully Ordered: " + Quantity + " " + name + ".";
             db.supplierShippings.Add(supplierShipping);
             await db.SaveChangesAsync();
-            return View();
+            return View("Success");
         }
 
         public ActionResult ViewLowStock()
